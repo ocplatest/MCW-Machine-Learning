@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Machine Learning
@@ -171,14 +171,9 @@ When participants are doing activities, you can **look ahead to refresh your mem
 
 ## Abstract and learning objectives 
 
-In this whiteboard design session, you will work with a group to design a solution that combines Azure Databricks with Azure Machine Learning service to build, train and deploy the machine learning and deep learning models. You will learn:
-- Use of automated machine learning and understanding of its capabilities 
-- Use of model explainability features
-- Model lifecycle management from training in Azure Databricks to deployment for use in batch and real-time inferencing scenarios
-- Deep learning models for NLP in text classification and forecasting against time-series data
-- To compare PyTorch and Keras for deep learning
+In this whiteboard design session, you will work with a group to design and implement a solution that combines Azure Databricks with Azure Machine Learning service to build, train and deploy the machine learning and deep learning models. You will learn how to use automated machine learning, model lifecycle management from training to deployment, in batch and real-time inferencing scenarios, and construct deep learning models for Natural Language Processing (NLP) in text classification and forecasting against time-series data.  Finally, you’ll learn to compare data with PyTorch and Keras for deep learning.
 
-At the end of this whiteboard design session, you will be better able to design solutions leveraging the Azure Machine Learning service and Azure Databricks.
+At the end of this workshop, you will have a deeper understanding of the capabilities and implementation solutions when leveraging the Azure Machine Learning service and Azure Databricks.
 
 ## Step 1: Review the customer case study 
 
@@ -200,9 +195,9 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. 
 
-According to Francine Fischer, CIO of Trey Research, Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their PoC, they would like to focus on two maintenance related scenarios.
+According to Francine Fischer, CIO of Trey Research, Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their proof of concept (PoC), they would like to focus on two maintenance related scenarios.
 
-In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. They envision that with an approach like this to detect out of compliance parts, they can then process all of the components of each car (according to the specifications) to identify if any compliance issues should be flagged with the customer. 
+In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. They envision that with an approach like this to detect out of compliance parts, they can then process all of the components of each car (according to the specifications) to identify if any compliance issues should be flagged with the customer. 
 
 Each document in the component data has a short text description of the component as documented by an authorized technician. 
 The contents include:
@@ -257,7 +252,7 @@ Finally, they would like to be able to easily create dashboards that summarize t
 
 2.  How should we choose between Keras and PyTorch for performing deep learning?
 
-3.  We have heard Azure Machine Learning service supports automated machine learning, can we use automated machine learning to create models using deep learning? Can we really expect a non-data scientist to create performant models using these tools?  
+3.  We have heard Azure Machine Learning service supports automated machine learning; can we use automated machine learning to create models using deep learning? Can we really expect a non-data scientist to create performant models using these tools?  
 
 4.  Some of our team has worked with Azure Databricks, and they are confused by the overlap with Azure Machine Learning service. How should we be thinking about when to use which? 
 
@@ -465,13 +460,13 @@ _High-level architecture_
 
 1.  Without getting into the details (the following sections will address the details), diagram your initial vision for the solution. You will refine this diagram as you proceed.
 
-The high level architecture of the solution is illustrated in the following diagram.
+    The high-level architecture of the solution is illustrated in the following diagram.
 
-![Compliance and battery alerting AI solution diagram as described in the text that follows](images/preferred-solution-overview.png)
+    ![Compliance and battery alerting AI solution diagram as described in the text that follows](images/preferred-solution-overview.png)
 
-In the solution the component text data is retrieved from the existing Azure SQL Database store. The labeled data provided is used within Azure Databricks to train a model that can classify the components as compliant or non-compliant. During model training, the model logs and performance metrics are collected by Azure Machine Learning service into the Workspace. The model that is created is also registered there so that it can be easily retrieved and used for later evaluation or scoring. Trey can score the component descriptions in batch using Azure Databricks, where by their notebook code retrieves the trained compliance model from the Azure Machine Learning Workspace. During this process they can evaluate vehicle by vehicle and issue an alert if any vehicle has been detected with out of compliance components. An alert is issued by inserting a new document into an a Cosmos DB collection. An Azure Function monitors the Cosmos DB change feed and creates a new cloud to device message to send to the vehicle via IoT Hub. Service facilities, who would not receive these pushed alerts, would be able to lookup the the alerts by querying from Cosmos DB. 
+    In the solution the component text data is retrieved from the existing Azure SQL Database store. The labeled data provided is used within Azure Databricks to train a model that can classify the components as compliant or non-compliant. During model training, the model logs and performance metrics are collected by Azure Machine Learning service into the Workspace. The model that is created is also registered there so that it can be easily retrieved and used for later evaluation or scoring. Trey can score the component descriptions in batch using Azure Databricks, where by their notebook code retrieves the trained compliance model from the Azure Machine Learning Workspace. During this process they can evaluate vehicle by vehicle and issue an alert if any vehicle has been detected with out of compliance components. An alert is issued by inserting a new document into a Cosmos DB collection. An Azure Function monitors the Cosmos DB change feed and creates a new cloud to device message to send to the vehicle via IoT Hub. Service facilities, who would not receive these pushed alerts, would be able to lookup the alerts by querying from Cosmos DB. 
 
-The process for the battery failure alerting works similarly. Trey would start by storing the historical data already have in Azure Storage blobs. This historical data would be used to train the model in Azure Databricks and register it with Azure Machine Learning service. With trained model in hand, Trey could load create a notebook in Azure Databricks that uses Spark Structured Streaming to apply the model, make its forecasts and issue any alerts by writing documents to Cosmos DB for batteries forecasted to fail within 30 days. The data scored in this case would be the daily trip telemetry received from the vehicle, ingested into IoT Hub and directly read from by the Structured Streaming query. Additionally, Trey would want to archive all of the telemetry received via IoT Hub to Azure Storage blobs for the purposes of collecting historical data they can later use to improve their models and create new ones. The issued alerts would be queried or sent in the same way as described for component compliance alerts. 
+    The process for the battery failure alerting works similarly. Trey would start by storing the historical data already have in Azure Storage blobs. This historical data would be used to train the model in Azure Databricks and register it with Azure Machine Learning service. With trained model in hand, Trey could load create a notebook in Azure Databricks that uses Spark Structured Streaming to apply the model, make its forecasts and issue any alerts by writing documents to Cosmos DB for batteries forecasted to fail within 30 days. The data scored in this case would be the daily trip telemetry received from the vehicle, ingested into IoT Hub and directly read from by the Structured Streaming query. Additionally, Trey would want to archive all of the telemetry received via IoT Hub to Azure Storage blobs for the purposes of collecting historical data they can later use to improve their models and create new ones. The issued alerts would be queried or sent in the same way as described for component compliance alerts. 
 
 _Classifying component descriptions text data_
 
@@ -485,7 +480,7 @@ Trey would need labeled examples consisting of the component text description an
 
 3.  How would Trey create a deep learning model to classify the component descriptions? Give an example of the architecture of the neural network.
 
-Trey would author a notebook that loads the labeled component description data and creates the word embeddings representation of data. They could start with a simple sequential neural network consisting of an input layer (one neuron for each "word"), a fully connected layer consisting of significantly fewer neurons than embeddings with a non-linear activation function (such as ReLu), followed by a fully connected layer consisting of a single neuron with an activation function (such as Sigmoid). Only after performing hyper-parameter tuning or iterating on how the prepare the data, would they likely consider a more complex network architecture like an a recurrent neural network (RNN). 
+Trey would author a notebook that loads the labeled component description data and creates the word embeddings representation of data. They could start with a simple sequential neural network consisting of an input layer (one neuron for each "word"), a fully connected layer consisting of significantly fewer neurons than embeddings with a non-linear activation function (such as ReLu), followed by a fully connected layer consisting of a single neuron with an activation function (such as Sigmoid). Only after performing hyper-parameter tuning or iterating on how the prepare the data, would they likely consider a more complex network architecture like a recurrent neural network (RNN). 
 
 4.  Describe how Trey would use the model in the context of batch scoring the component text for compliance? What services and frameworks would you suggest? 
 
@@ -496,7 +491,7 @@ _Forecasting battery failure_
 
 1.  At a high level, describe the steps to apply a forecasting model to predict battery failure pending within the next 30 days.
 
-In a forecasting scenario, time-stamped data is provided and the goal is to be able to forecast a value a certain number of periods in the future by looking at historical data. In Trey's case, they could use their existing daily battery telemetry to train a model that forecast the battery cycles used in any given day, for 30 days out. They would sum the battery cycles used from the historical data plus the forecast data and if the result exceeds the expected battery life they could predict this as a pending failure. 
+In a forecasting scenario, time-stamped data is provided, and the goal is to be able to forecast a value a certain number of periods in the future by looking at historical data. In Trey's case, they could use their existing daily battery telemetry to train a model that forecast the battery cycles used in any given day, for 30 days out. They would sum the battery cycles used from the historical data plus the forecast data and if the result exceeds the expected battery life they could predict this as a pending failure. 
 
 2.  With regards to the model, what options does Trey have for creating the model against the time series data? Should they create a regression model, a forecasting model or a classifier? Why?
 
@@ -519,7 +514,7 @@ _Automated machine learning_
 
 1.  For which scenario could Trey apply automated machine learning? Why? 
 
-While automated machine learning could be applied to both scenarios, the significant additional data preparation required for text classification means that automated machine learning could not be applied outright. However, for the the time-series battery lifecycle data they could directly use the automated machine learning capabilities of Azure Machine Learning service to create a forecast model. 
+While automated machine learning could be applied to both scenarios, the significant additional data preparation required for text classification means that automated machine learning could not be applied outright. However, for the time-series battery lifecycle data they could directly use the automated machine learning capabilities of Azure Machine Learning service to create a forecast model. 
 
 2.  How could they use automated machine learning with Azure Databricks?
 
@@ -553,7 +548,7 @@ _Model Explainability & Reproducibility_
 
 The Azure Machine Learning service Python SDK includes interpretability features that accept a trained model along with training or test data and can return insights on why the model is making its decisions by providing analysis like which features have the greatest impact on the model's predictions. 
 
-This approach can be performed globally (against the entire data set provided) or against a single sample from the data set. The former enables Trey to understand generally what is influencing the models predictions while the latter enables Trey to explain what influenced a particular prediction. The SDK also provides visualizations of the explanations that result that can be use within a notebook. 
+This approach can be performed globally (against the entire data set provided) or against a single sample from the data set. The former enables Trey to understand generally what is influencing the model's predictions while the latter enables Trey to explain what influenced a particular prediction. The SDK also provides visualizations of the explanations that result that can be use within a notebook. 
 
 2.  Is the approach you suggest limited to working against machine learning models only (e.g., it does not work against deep learning models)?
 
@@ -579,7 +574,7 @@ Trey could continue to use Azure Notebooks to visualize the results of the Spark
 
 3.  What should Trey utilize for providing easy to customize visualizations to business analysts and stakeholders? Is it the same or different tool you suggested they use during modeling? 
 
-While Trey could create simplified notebooks and even dashboards using Azure Databricks notebooks, its is more likely that business analysts would be more comfortable using Power BI, which is why it is important to ensure the scored results are made available in a service datastore compatible with Power BI like Cosmos DB.
+While Trey could create simplified notebooks and even dashboards using Azure Databricks notebooks, it is more likely that business analysts would be more comfortable using Power BI, which is why it is important to ensure the scored results are made available in a service datastore compatible with Power BI like Cosmos DB.
 
 ## Checklist of preferred objection handling
 
@@ -591,7 +586,7 @@ For Trey's two scenarios, they could actually use either approach. They would li
 
 This is the subject of much discussion in the community, however the guidance for selecting between Keras and PyTorch boils down to: Keras may be easier to start with and easier to build production grade models, while PyTorch has a steeper initial learning, as it is lower level than Keras, but it offers greater flexibility, faster inferencing and improved debuggability in the balance. For a comprehensive comparison, see https://deepsense.ai/keras-or-pytorch/.
 
-3.  We have heard Azure Machine Learning service supports automated machine learning, can we use automated machine learning to create models using deep learning? Can we really expect a non-data scientist to create performant models using these tools? 
+3.  We have heard Azure Machine Learning service supports automated machine learning; can we use automated machine learning to create models using deep learning? Can we really expect a non-data scientist to create performant models using these tools? 
 
 Automated machine learning currently only support machine learning algorithms and not deep learning approaches.
 
