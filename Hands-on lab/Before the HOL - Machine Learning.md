@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Machine Learning
@@ -44,9 +44,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 1.  Microsoft Azure subscription must be pay-as-you-go or MSDN
 
-    a. Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
+    - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
-    b. Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+    - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
 
 ## Before the hands-on lab
 
@@ -176,13 +176,14 @@ The notebooks you will run depends on certain Python libraries that will need to
 
     - **Workspace Name**: AML-workspace
 
-    - **Subscription**: Choose your Azure subscription
+    - **Subscription**: Choose your Azure subscription.
 
-    - **Resource group**: Select the resource group in which you deployed your Azure Databricks workspace
+    - **Resource group**: Select the resource group in which you deployed your Azure Databricks workspace.
 
-    - **Location**: Choose a region closest to you (it is OK if the Azure Databricks Workspace and the Azure Machine Learning Workspace are in different locations)
+    - **Location**: Choose a region closest to you (it is OK if the Azure Databricks Workspace and the Azure Machine Learning Workspace are in different locations).
 
     ![Entering the previously provided value in the Create Machine Learning Workspace dialog](images/create-aml-workspace.png)
 
 4.  Select **Review + Create** and then select **Create** on the dialog that appears.
+
 You should follow all these steps provided _before_ attending the Hands-on lab.
