@@ -135,10 +135,10 @@ Finally, they would like to be able to easily create dashboards that summarize t
 ### Infographic for common scenarios
 
 **Azure Machine Learning service taxonomy**
-![The Azure Machine Learning service taxonomy.](images/azure-machine-learning-taxonomy.png)
+![The Azure Machine Learning service taxonomy.](images/azure-machine-learning-taxonomy.png 'Azure Machine Learning service taxonomy')
 
 **Real-time analytics**
-![Real-time Analytics with Azure Databricks.](images/real-time-analytics.png)
+![Real-time Analytics with Azure Databricks.](images/real-time-analytics.png 'Real-time analytics')
 
 ## Step 2: Design a proof of concept solution
 
