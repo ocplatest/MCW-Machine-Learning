@@ -80,7 +80,7 @@ In this lab, you will use Azure Databricks in combination with Azure Machine Lea
 
 The following diagram summarizes the key components and processing steps in the lab.
 
-![Overall solution diagram, described in the text that follows.](images/lab-architecture.png)
+![Overall solution diagram, described in the text that follows.](images/lab-architecture.png 'Solution Architecture')
 
 In this lab, models are trained using both Azure Databricks (for deep learning with the PyTorch and Keras frameworks) and Azure Machine Learning compute (for automated machine learning using the user experience in the Azure Portal). Models are registered with the Azure Machine Learning Workspace. The data used for model training is read from Azure Storage. 
 
@@ -112,11 +112,11 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 3. Select  **Create Experiment**.
    
-   ![Create new experiment](./images/02_CreateExperiment.png)
+   ![Automated machine learning experiment section in Azure Portal. The image highlights the "Create Experiment" button.](./images/02_CreateExperiment.png 'Create Experiment')
 
 4. Provide the experiment name: `Battery-Cycles` and select **Create a new compute**.
    
-   ![Provide experiment name and click on compute](./images/03_NewExperiment_1.png)
+   ![The experiment name has "Battery-Cycles" entered into it and "Create a new compute" button is highlighted.](./images/03_NewExperiment_1.png 'Create New Experiment')
 
 
 5. For the new compute, provide the following values and then select **Create**:
@@ -124,15 +124,15 @@ In this exercise, you will create a model that predicts battery failure from tim
    - VM size: `STANDARD_DS11_V2`
    - Select `Additional Settings` and set Minimum number of nodes and Maximum number of nodes to `1`.
    
-      ![Create new compute](./images/04_CreateNewCompute.png)
+      ![Create a New Compute dialog shows the values for various fields, such as Compute name.](./images/04_CreateNewCompute.png 'Create a New Compute')
 
 6. Wait for the Compute to be ready and select **Next**. Now you will upload the training data. Start by downloading the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series.csv. Please ensure that the extension of the downloaded file is **csv**. Select **Upload** and then in the dialog that appears choose the file `daily-battery-time-series.csv` from your local disk.
    
-   ![Uploading the training data](./images/05_UploadDataFile.png)
+   ![The image highlights the Upload button to start uploading the training data from your local computer.](./images/05_UploadDataFile.png 'Uploading training data')
 
 7. Select **daily-battery-time-series.csv** and review the training data. Be sure to scroll to the right to observe the target column `Daily_Cycles_Used`. Toggle the switch above the following columns so the header reads `Ignored` for the first unlabeled column, `number_of_trips`, `lifetime_cycles_used` and `battery_rated_cycles` columns.
    
-   ![Reviewing the training data](./images/06_ReviewDataFile.png)
+   ![The data preview section shows both selected and ignored features from the uploaded dataset.](./images/06_ReviewDataFile.png 'Select Features')
 
 8. Now, you will setup the Auto ML Experiment Basic Settings by providing the following values:
 
@@ -142,7 +142,7 @@ In this exercise, you will create a model that predicts battery failure from tim
    - Series name column(s): **Battery_ID**
    - Forecast Horizon: Enter `30`. This refers to forecasting out up to 30 days. 
 
-      ![Setup Auto ML experiment basic settings](./images/07_SetupExp_1.png)
+      ![The Auto ML experiment basic settings dialog shows values for various fields such as "Prediction Task", "Target column", etc.](./images/07_SetupExp_1.png 'Configure Experiment - Basic Settings')
 
 9. Select **Advanced Settings** to expand that area. Provide the following settings:
 
@@ -151,7 +151,7 @@ In this exercise, you will create a model that predicts battery failure from tim
    - Number of Cross Validations: **5**
    - Max concurrent iterations: **1**
    
-     ![Configuring the Advanced Settings as described](./images/08_SetupExp_2.png)
+     ![The Auto ML experiment advanced settings dialog shows values for various fields such as "Primary metric", "Max number of iterations", etc.](./images/08_SetupExp_2.png 'Configure Experiment - Advanced Settings')
 
 10. Select **Start** to run the experiment and begin automated machine learning process.
     
@@ -159,25 +159,25 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 1. The experiment will run for about *5-10 minutes*. Once it completes you should examine the chart to observe the model performance for the primary metric for different iterations. 
    
-   ![Review run details - graph view](./images/09_ReviewRunDetails_1.png)
+   ![Run details shows Primary Metric verses Iterations graph](./images/09_ReviewRunDetails_1.png 'Run Details - Graph View')
 
 2. Scroll down to see a table view of different iterations and select the iteration with the best **normalized root mean square error** score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model.
    
-   ![Review run details - table view](./images/010_ReviewRunDetails_2.png)
+   ![Run details shows a table view of Iteration details and corresponding Primary Metric values.](./images/010_ReviewRunDetails_2.png 'Run Details - Table View')
 
 ### Task 3: Register the Best Model
 
 1. Return to the top of the `Run Details` screen and select **Deploy Best Model** as shown. Note that deployment consists of four steps: (1) *Register Best Model*, (2) Download *Scoring and Environment Script files*, (3) Create *Deployment Image* using the downloaded script files, and (4) Deploy *Scoring Web Service* using the created image.
    
-   ![The Deploy Best Model button](./images/014_DeployBestModel.png)
+   ![The "Deploy Best Model" button is highlighted.](./images/014_DeployBestModel.png 'Deploy Best Model')
 
 2. You register the best model with the Azure Machine Learning service model registry so that you can retrieve it later when you want to use it for scoring. Select **Register Model** link. Once the registration process has completed, the link will change to the text `Model has been registered`.
    
-   ![Register Best Model](./images/015_RegisterModel.png)
+   ![The "Register Model" link is highlighted](./images/015_RegisterModel.png 'Register Model')
 
 3. The model registration will create a new model in your Azure Machine Learning workspace with the same name as the experiment: `Battery-Cycles`. To view this model from the Azure Machine Learning workspace, select **Models**. 
    
-   ![Viewing the list of models in the Azure Machine Learning workspace](images/03-automl-registered-model.png)
+   ![Showing the list of registered models in the Azure Machine Learning workspace](images/03-automl-registered-model.png 'Registered Models')
 
 4. If you see your model in the above list, you are now ready to continue on to the next exercise.
 
