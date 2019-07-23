@@ -459,7 +459,7 @@ _High-level architecture_
 
     The high-level architecture of the solution is illustrated in the following diagram.
 
-    ![Compliance and battery alerting AI solution diagram as described in the text that follows](images/preferred-solution-overview.png 'High-level architecture')
+    ![Compliance and battery alerting AI solution diagram as described in the text that follows.](images/preferred-solution-overview.png 'High-level architecture')
 
     In the solution the component text data is retrieved from the existing Azure SQL Database store. The labeled data provided is used within Azure Databricks to train a model that can classify the components as compliant or non-compliant. During model training, the model logs and performance metrics are collected by Azure Machine Learning service into the Workspace. The model that is created is also registered there so that it can be easily retrieved and used for later evaluation or scoring. Trey can score the component descriptions in batch using Azure Databricks, where by their notebook code retrieves the trained compliance model from the Azure Machine Learning Workspace. During this process they can evaluate vehicle by vehicle and issue an alert if any vehicle has been detected with out of compliance components. An alert is issued by inserting a new document into a Cosmos DB collection. An Azure Function monitors the Cosmos DB change feed and creates a new cloud to device message to send to the vehicle via IoT Hub. Service facilities, who would not receive these pushed alerts, would be able to lookup the alerts by querying from Cosmos DB. 
 
