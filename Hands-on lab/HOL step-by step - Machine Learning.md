@@ -159,7 +159,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 1. The experiment will run for about *5-10 minutes*. Once it completes you should examine the chart to observe the model performance for the primary metric for different iterations. 
    
-   ![Run details shows Primary Metric verses Iterations graph](./images/09_ReviewRunDetails_1.png 'Run Details - Graph View')
+   ![Run details shows Primary Metric verses Iterations graph.](./images/09_ReviewRunDetails_1.png 'Run Details - Graph View')
 
 2. Scroll down to see a table view of different iterations and select the iteration with the best **normalized root mean square error** score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model.
    
@@ -177,7 +177,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 3. The model registration will create a new model in your Azure Machine Learning workspace with the same name as the experiment: `Battery-Cycles`. To view this model from the Azure Machine Learning workspace, select **Models**. 
    
-   ![Showing the list of registered models in the Azure Machine Learning workspace](images/03-automl-registered-model.png 'Registered Models')
+   ![Showing the list of registered models in the Azure Machine Learning workspace.](images/03-automl-registered-model.png 'Registered Models')
 
 4. If you see your model in the above list, you are now ready to continue on to the next exercise.
 
