@@ -159,25 +159,28 @@ In this exercise, you will create a model that predicts battery failure from tim
    
    ![Review run details - graph view](./images/09_ReviewRunDetails_1.png)
 
-2. Scroll down to see a table view of different iterations and select the iteration with the best **normalized root mean square error** score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model.
+2. Scroll down to see a table view of different iterations and select the iteration with the best **normalized root mean square error** score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure ML Python SDK updates over time and gives you the best performing model at time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
    
-   ![Review run details - table view](./images/010_ReviewRunDetails_2.png)
+   ![Run details shows a table view of Iteration details and corresponding Primary Metric values.](./images/010_ReviewRunDetails_2.png 'Run Details - Table View')
 
 
-### Task 3: Register the Best Model
-1. Return to the top of the `Run Details` screen and select **Deploy Best Model** as shown. Note that deployment consists of four steps: (1) *Register Best Model*, (2) Download *Scoring and Environment Script files*, (3) Create *Deployment Image* using the downloaded script files, and (4) Deploy *Scoring Web Service* using the created image.
+### Task 3: Deploy the Best Model
+1. Scroll below the `ITERATIONS` table and select **Deploy Best Model** as shown.
    
-   ![The Deploy Best Model button](./images/014_DeployBestModel.png)
-
-2. You register the best model with the Azure Machine Learning service model registry so that you can retrieve it later when you want to use it for scoring. Select **Register Model** link. Once the registration process has completed, the link will change to the text `Model has been registered`.
+   ![The "Deploy Best Model" button is highlighted.](./images/0141_DeployBestModel.png 'Deploy Best Model Button')
    
-   ![Register Best Model](./images/015_RegisterModel.png)
+2. Provide the `Deployment name`, and `Deployment description`, and then select **Deploy** as shown:
 
-3. The model registration, will create a new model in your Azure Machine Learning workspace with the same name as the experiment: `Battery-Cycles`. To view this model from the Azure Machine Learning workspace, select **Models**. 
+   - Deployment name: **battery-cycles**
+   - Deployment description: **Deploying best AutoML model to predict battery cycles.**
    
-   ![Viewing the list of models in the Azure Machine Learning workspace](images/03-automl-registered-model.png)
+   ![The Deploy Best Model dialog that shows values for the two fields, deployment name and deployment description.](./images/0142_DeployBestModel.png 'Deploy Best Model Dialog')
 
-4. If you see your model in the above list, you are now ready to continue on to the next exercise.
+3. The model deployment, will register the model, create the deployment image, and deploy it as a scoring webservice in an Azure Container Instance (ACI). To view the deployed model, from the Azure Machine Learning workspace select **Deployments**.
+   
+   ![Viewing the list of deployed models in the Azure Machine Learning workspace](images/0143_DeployBestModel.png 'Deployed Models')
+
+4. If you see your model deployed in the above list, you are now ready to continue on to the next exercise.
 
 ## Exercise 2: Understanding the automated ML generated forecast model using model explainability 
 
@@ -187,7 +190,8 @@ Duration: 15 minutes
 
 1. Browse to your Azure Databricks Workspace and open `AI with Databricks and AML \ Model Explainability`. This is the notebook you will step thru executing in this lab.
 2. Follow the instructions within the notebook to complete the lab.
-3. Note that in this notebook, and the following notebooks, we are using the default storage account in Azure Databricks. However, the best practice in enterprises is to use a shared storage account that you mount to your Azure Databricks. Also, you can use [Secrets in Azure Key Vaults](https://docs.azuredatabricks.net/user-guide/secrets/secrets.html) that can be read by the notebooks to save sensitive data, such as your subscription ID.
+3. Note that because of version differences between the local environment of the cluster and the model training environment sometimes you may see warning messages when you first load the best model from the AutoML Run. You should be able to ignore the warning messages and successfully complete the lab. 
+4. Note that in this notebook, and the following notebooks, we are using the default storage account in Azure Databricks. However, the best practice in enterprises is to use a shared storage account that you mount to your Azure Databricks. Also, you can use [Secrets in Azure Key Vaults](https://docs.azuredatabricks.net/user-guide/secrets/secrets.html) that can be read by the notebooks to save sensitive data, such as your subscription ID.
 
 
 ## Exercise 3: Creating a deep learning model (RNN) for time series data and registering the model
