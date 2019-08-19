@@ -120,7 +120,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Workers**: 1 
 
-   ![Complete the form using the options as outlined above](images/azure-databricks-create-cluster-form.png)
+   ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form.png 'Create New Cluster Dialog')
 
 6. Select **Create Cluster**.
 
@@ -155,7 +155,7 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 3. On the Import Notebooks dialog, select URL and paste in the following URL:
     ```
-    https://github.com/solliancenet/mcw-ai-with-azure-databricks-and-azure-machine-learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true
+    https://github.com/microsoft/MCW-Machine-Learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true
     ```
 
 4. Select **Import**.
