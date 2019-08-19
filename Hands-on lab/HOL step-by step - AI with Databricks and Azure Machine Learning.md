@@ -36,7 +36,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Exercise 1: Creating a forecast model using automated machine learning](#exercise-1-creating-a-forecast-model-using-automated-machine-learning)
     - [Task 1: Create an automated machine learning experiment](#task-1-create-an-automated-machine-learning-experiment)
     - [Task 2: Review the experiment run results](#task-2-review-the-experiment-run-results)
-    - [Task 3: Register the Best Model](#task-3-register-the-best-model)
+    - [Task 3: Deploy the Best Model](#task-3-deploy-the-best-model)
   - [Exercise 2: Understanding the automated ML generated forecast model using model explainability](#exercise-2-understanding-the-automated-ml-generated-forecast-model-using-model-explainability)
     - [Task 1: Explore the model using a notebook](#task-1-explore-the-model-using-a-notebook)
   - [Exercise 3: Creating a deep learning model (RNN) for time series data and registering the model](#exercise-3-creating-a-deep-learning-model-rnn-for-time-series-data-and-registering-the-model)
