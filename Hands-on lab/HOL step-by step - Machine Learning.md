@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Machine Learning
@@ -54,19 +54,17 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives 
 
-In this lab, you will use Azure Databricks in combination with Azure Machine Learning service to build, train and deploy the desired models. You will learn:
-  - How to train a forecasting model against time series data without any code by using automated machine learning.
-  - How to create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data.
-  - How to use a trained forecast model to score data in real-time using Spark Structured Streaming within Azure Databricks.
-  - How to train an Natural Language Processing text classification model using Keras.
+In this hands-on lab, you will use Azure Databricks in combination with Azure Machine Learning service to build, train and deploy desired models. You will learn how to train a forecasting model against time-series data, without any code, by using automated machine learning, and how to score data in real-time using Spark Structure Streaming within Azure Databricks.  You will create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data and train a Natural Language Processing (NLP) text classification model using Keras.
+
+At the end of this lab, you will be better able to build solutions leveraging the Azure Machine Learning service and Azure Databricks.
 
 ## Overview
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. 
 
-Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their PoC, they would like to focus on two maintenance related scenarios.
+Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their proof of concept (PoC), they would like to focus on two maintenance related scenarios.
 
-In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Then each car is evaluated for out compliance components. 
+In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Then each car is evaluated for out compliance components. 
 
 In the second scenario, Trey Research would like to predict the likelihood of battery failure based on the telemetry stream of time series data that the car provides about how the battery performs when the car is started, how it is charging while running and how well it is holding its charge, among other factors. If they detect a battery failure is imminent within the next 30 days, they would like to send an alert.
 
@@ -82,7 +80,7 @@ In this lab, you will use Azure Databricks in combination with Azure Machine Lea
 
 The following diagram summarizes the key components and processing steps in the lab.
 
-![Overall solution diagram, described in the text that follows.](images/lab-architecture.png)
+![Overall solution diagram, described in the text that follows.](images/lab-architecture.png 'Solution Architecture')
 
 In this lab, models are trained using both Azure Databricks (for deep learning with the PyTorch and Keras frameworks) and Azure Machine Learning compute (for automated machine learning using the user experience in the Azure Portal). Models are registered with the Azure Machine Learning Workspace. The data used for model training is read from Azure Storage. 
 
@@ -92,9 +90,9 @@ The scoring is performed using notebooks running within Azure notebooks, which s
 
 1.  Microsoft Azure subscription must be pay-as-you-go or MSDN
 
-    a. Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
+    - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
-    b. Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+    - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
 
 ## Before the hands-on lab
 
@@ -109,14 +107,16 @@ In this exercise, you will create a model that predicts battery failure from tim
 ### Task 1: Create an automated machine learning experiment
 
 1. Navigate to your Azure Machine Learning workspace in the Azure Portal.
+
 2. Select `Automated machine learning` in the left navigation bar.
+
 3. Select  **Create Experiment**.
    
-   ![Create new experiment](./images/02_CreateExperiment.png)
+   ![Automated machine learning experiment section in Azure Portal. The image highlights the "Create Experiment" button.](./images/02_CreateExperiment.png 'Create Experiment')
 
 4. Provide the experiment name: `Battery-Cycles` and select **Create a new compute**.
    
-   ![Provide experiment name and click on compute](./images/03_NewExperiment_1.png)
+   ![The experiment name has "Battery-Cycles" entered into it and "Create a new compute" button is highlighted.](./images/03_NewExperiment_1.png 'Create New Experiment')
 
 
 5. For the new compute, provide the following values and then select **Create**:
@@ -124,32 +124,34 @@ In this exercise, you will create a model that predicts battery failure from tim
    - VM size: `STANDARD_DS11_V2`
    - Select `Additional Settings` and set Minimum number of nodes and Maximum number of nodes to `1`.
    
-      ![Create new compute](./images/04_CreateNewCompute.png)
+      ![Create a New Compute dialog shows the values for various fields, such as Compute name.](./images/04_CreateNewCompute.png 'Create a New Compute')
 
 6. Wait for the Compute to be ready and select **Next**. Now you will upload the training data. Start by downloading the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series.csv. Please ensure that the extension of the downloaded file is **csv**. Select **Upload** and then in the dialog that appears choose the file `daily-battery-time-series.csv` from your local disk.
    
-   ![Uploading the training data](./images/05_UploadDataFile.png)
+   ![The image highlights the Upload button to start uploading the training data from your local computer.](./images/05_UploadDataFile.png 'Uploading training data')
 
 7. Select **daily-battery-time-series.csv** and review the training data. Be sure to scroll to the right to observe the target column `Daily_Cycles_Used`. Toggle the switch above the following columns so the header reads `Ignored` for the first unlabeled column, `number_of_trips`, `lifetime_cycles_used` and `battery_rated_cycles` columns.
    
-   ![Reviewing the training data](./images/06_ReviewDataFile.png)
+   ![The data preview section shows both selected and ignored features from the uploaded dataset.](./images/06_ReviewDataFile.png 'Select Features')
 
 8. Now, you will setup the Auto ML Experiment Basic Settings by providing the following values:
-   - Prediction Task: select **Forecasting**
-   - Target column: select **Daily_Cycles_Used**
-   - Time column: select **Date**
-   - Series name column(s): **Battery_ID**
-   - Forecast Horizon: enter `30`. This refers to forecasting out up to 30 days. 
 
-      ![Setup Auto ML experiment basic settings](./images/07_SetupExp_1.png)
+   - Prediction Task: Select **Forecasting**
+   - Target column: Select **Daily_Cycles_Used**
+   - Time column: Select **Date**
+   - Series name column(s): **Battery_ID**
+   - Forecast Horizon: Enter `30`. This refers to forecasting out up to 30 days. 
+
+      ![The Auto ML experiment basic settings dialog shows values for various fields such as "Prediction Task", "Target column", etc.](./images/07_SetupExp_1.png 'Configure Experiment - Basic Settings')
 
 9. Select **Advanced Settings** to expand that area. Provide the following settings:
+
    - Primary metric: **normalized_root-mean_squared_error**
    - Max number of iterations: **10**
    - Number of Cross Validations: **5**
    - Max concurrent iterations: **1**
    
-     ![Configuring the Advanced Settings as described](./images/08_SetupExp_2.png)
+     ![The Auto ML experiment advanced settings dialog shows values for various fields such as "Primary metric", "Max number of iterations", etc.](./images/08_SetupExp_2.png 'Configure Experiment - Advanced Settings')
 
 10. Select **Start** to run the experiment and begin automated machine learning process.
     
@@ -157,7 +159,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 1. The experiment will run for about *5-10 minutes*. Once it completes you should examine the chart to observe the model performance for the primary metric for different iterations. 
    
-   ![Review run details - graph view](./images/09_ReviewRunDetails_1.png)
+   ![Run details shows Primary Metric verses Iterations graph.](./images/09_ReviewRunDetails_1.png 'Run Details - Graph View')
 
 2. Scroll down to see a table view of different iterations and select the iteration with the best **normalized root mean square error** score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure ML Python SDK updates over time and gives you the best performing model at time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
    
@@ -189,10 +191,10 @@ Duration: 15 minutes
 ### Task 1: Explore the model using a notebook
 
 1. Browse to your Azure Databricks Workspace and open `AI with Databricks and AML \ Model Explainability`. This is the notebook you will step thru executing in this lab.
+
 2. Follow the instructions within the notebook to complete the lab.
 3. Note that because of version differences between the local environment of the cluster and the model training environment sometimes you may see warning messages when you first load the best model from the AutoML Run. You should be able to ignore the warning messages and successfully complete the lab. 
 4. Note that in this notebook, and the following notebooks, we are using the default storage account in Azure Databricks. However, the best practice in enterprises is to use a shared storage account that you mount to your Azure Databricks. Also, you can use [Secrets in Azure Key Vaults](https://docs.azuredatabricks.net/user-guide/secrets/secrets.html) that can be read by the notebooks to save sensitive data, such as your subscription ID.
-
 
 ## Exercise 3: Creating a deep learning model (RNN) for time series data and registering the model
 
@@ -201,8 +203,8 @@ Duration: 45 minutes
 ### Task 1: Create the model using a notebook
 
 1. Browse to your Azure Databricks Workspace and open `AI with Databricks and AML \ Deep Learning with Time Series`. This is the notebook you will step thru executing in this lab.
-2. Follow the instructions within the notebook to complete the lab.
 
+2. Follow the instructions within the notebook to complete the lab.
 
 ## Exercise 4: Using a forecast model for scoring of streaming telemetry
 
@@ -213,6 +215,7 @@ In this exercise, you will apply the forecast model to a Spark streaming job in 
 ### Task 1: Create the streaming job using a notebook
 
 1. Browse to your Azure Databricks Workspace and navigate to `AI with Databricks and AML \ Stream Scoring`. This is the notebook you will step thru executing in this lab.
+
 2. Follow the instructions within the notebook to complete the lab.
 
 ## Exercise 5: Creating a deep learning text classification model
@@ -224,8 +227,8 @@ In this exercise, you create a model for classifying component text as compliant
 ### Task 1: Create the classification model using a notebook
 
 1. Browse to your Azure Databricks Workspace and navigate to `AI with Databricks and AML \ Deep Learning with Text`. This is the notebook you will step thru executing in this lab.
-2. Follow the instructions within the notebook to complete the lab.
 
+2. Follow the instructions within the notebook to complete the lab.
 
 ## After the hands-on lab 
 

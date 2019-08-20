@@ -1,4 +1,4 @@
-![](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
+![Microsoft Cloud Workshops](https://github.com/Microsoft/MCW-Template-Cloud-Workshop/raw/master/Media/ms-cloud-workshop.png "Microsoft Cloud Workshops")
 
 <div class="MCWHeader1">
 Machine Learning 
@@ -45,14 +45,9 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives 
 
-In this whiteboard design session, you will work with a group to design a solution that combines Azure Databricks with Azure Machine Learning service to build, train and deploy the machine learning and deep learning models. You will learn:
-- Use of automated machine learning and understanding of its capabilities 
-- Use of model explainability features
-- Model lifecycle management from training in Azure Databricks to deployment for use in batch and real-time inferencing scenarios
-- Deep learning models for NLP in text classification and forecasting against time-series data
-- To compare PyTorch and Keras for deep learning
+In this whiteboard design session, you will work with a group to design and implement a solution that combines Azure Databricks with Azure Machine Learning service to build, train and deploy the machine learning and deep learning models. You will learn how to use automated machine learning, model lifecycle management from training to deployment, in batch and real-time inferencing scenarios, and construct deep learning models for Natural Language Processing (NLP) in text classification and forecasting against time-series data.  Finally, you’ll learn to compare data with PyTorch and Keras for deep learning.
 
-At the end of this whiteboard design session, you will be better able to design solutions leveraging the Azure Machine Learning service and Azure Databricks.
+At the end of this workshop, you will have a deeper understanding of the capabilities and implementation solutions when leveraging the Azure Machine Learning service and Azure Databricks.
 
 ## Step 1: Review the customer case study 
 
@@ -74,9 +69,9 @@ Directions:  With all participants in the session, the facilitator/SME presents 
 
 Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. 
 
-According to Francine Fischer, CIO of Trey Research, Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their PoC, they would like to focus on two maintenance related scenarios.
+According to Francine Fischer, CIO of Trey Research, Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their proof of concept (PoC), they would like to focus on two maintenance related scenarios.
 
-In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. They envision that with an approach like this to detect out of compliance parts, they can then process all of the components of each car (according to the specifications) to identify if any compliance issues should be flagged with the customer. 
+In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. They envision that with an approach like this to detect out of compliance parts, they can then process all of the components of each car (according to the specifications) to identify if any compliance issues should be flagged with the customer. 
 
 Each document in the component data has a short text description of the component as documented by an authorized technician. 
 The contents include:
@@ -131,7 +126,7 @@ Finally, they would like to be able to easily create dashboards that summarize t
 
 2.  How should we choose between Keras and PyTorch for performing deep learning?
 
-3.  We have heard Azure Machine Learning service supports automated machine learning, can we use automated machine learning to create models using deep learning? Can we really expect a non-data scientist to create performant models using these tools?  
+3.  We have heard Azure Machine Learning service supports automated machine learning; can we use automated machine learning to create models using deep learning? Can we really expect a non-data scientist to create performant models using these tools?  
 
 4.  Some of our team has worked with Azure Databricks, and they are confused by the overlap with Azure Machine Learning service. How should we be thinking about when to use which? 
 
@@ -140,10 +135,10 @@ Finally, they would like to be able to easily create dashboards that summarize t
 ### Infographic for common scenarios
 
 **Azure Machine Learning service taxonomy**
-![The Azure Machine Learning service taxonomy](images/azure-machine-learning-taxonomy.png)
+![The Azure Machine Learning service taxonomy.](images/azure-machine-learning-taxonomy.png 'Azure Machine Learning service taxonomy')
 
 **Real-time analytics**
-![Real-time Analytics with Azure Databricks](images/real-time-analytics.png)
+![Real-time Analytics with Azure Databricks.](images/real-time-analytics.png 'Real-time analytics')
 
 ## Step 2: Design a proof of concept solution
 
