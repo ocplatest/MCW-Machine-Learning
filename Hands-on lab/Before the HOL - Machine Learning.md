@@ -106,7 +106,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Cluster Mode**: Standard
 
-    - **Databricks Runtime Version**: 5.4 ML (Scala 2.11, Spark 2.4.3)
+    - **Databricks Runtime Version**: 5.5 ML (Scala 2.11, Spark 2.4.3)
 
     - **Python Version**: 3
 
@@ -155,7 +155,7 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 3. On the Import Notebooks dialog, select URL and paste in the following URL:
     ```
-    https://github.com/solliancenet/mcw-ai-with-azure-databricks-and-azure-machine-learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true
+    https://github.com/microsoft/MCW-Machine-Learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true
     ```
 
 4. Select **Import**.
