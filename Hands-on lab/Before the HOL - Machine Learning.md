@@ -106,7 +106,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Cluster Mode**: Standard
 
-    - **Databricks Runtime Version**: 5.5 ML (Scala 2.11, Spark 2.4.3)
+    - **Databricks Runtime Version**: Runtime: 5.5 LTS ML (Scala 2.11, Spark 2.4.3)
 
     - **Python Version**: 3
 
@@ -120,7 +120,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Workers**: 1 
 
-   ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form.png 'Create New Cluster Dialog')
+   ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form_2.png 'Create New Cluster Dialog')
 
 6. Select **Create Cluster**.
 
