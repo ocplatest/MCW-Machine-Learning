@@ -9,7 +9,7 @@ Whiteboard design session student guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 
@@ -263,13 +263,13 @@ Directions:
 
 7.  Tables switch roles and repeat Steps 2-6.
 
-##  Wrap-up 
+## Wrap-up 
 
 Timeframe: 15 minutes
 
 Directions: Tables reconvene with the larger group to hear the facilitator/SME share the preferred solution for the case study.
 
-##  Additional references
+## Additional references
 
 |    |            |
 |----------|:-------------:|
