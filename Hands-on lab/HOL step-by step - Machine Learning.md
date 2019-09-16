@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 
@@ -110,7 +110,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 2. Select `Automated machine learning` in the left navigation bar.
 
-3. Select  **Create Experiment**.
+3. Select **Create Experiment**.
    
    ![Automated machine learning experiment section in Azure Portal. The image highlights the "Create Experiment" button.](./images/02_CreateExperiment.png 'Create Experiment')
 
