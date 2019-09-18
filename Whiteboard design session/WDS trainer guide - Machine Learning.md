@@ -9,7 +9,7 @@ Whiteboard design session trainer guide
 </div>
 
 <div class="MCWHeader3">
-June 2019
+September 2019
 </div>
 
 
@@ -488,7 +488,7 @@ _Forecasting battery failure_
 
 1.  At a high level, describe the steps to apply a forecasting model to predict battery failure pending within the next 30 days.
 
-    In a forecasting scenario, time-stamped data is provided, and the goal is to be able to forecast a value a certain number of periods in the future by looking at historical data. In Trey's case, they could use their existing daily battery telemetry to train a model that forecast the battery cycles used in any given day, for 30 days out. They would sum the battery cycles used from the historical data plus the forecast data and if the result exceeds the expected battery life they could predict this as a pending failure. 
+    In a forecasting scenario, time-stamped data is provided, and the goal is to be able to forecast a value a certain number of periods in the future by looking at historical data. In Trey's case, they could use their existing daily battery telemetry to train a model that forecast the battery cycles used in any given day, for 30 days out. They would sum the battery cycles used from the historical data plus the forecast data and if the result exceeds the expected battery life, they could predict this as a pending failure. 
 
 2.  With regards to the model, what options does Trey have for creating the model against the time series data? Should they create a regression model, a forecasting model or a classifier? Why?
 
