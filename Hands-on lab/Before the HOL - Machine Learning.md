@@ -32,7 +32,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
   - [Before the hands-on lab](#before-the-hands-on-lab)
     - [Task 1: Create your Azure Databricks Account](#task-1-create-your-azure-databricks-account)
     - [Task 2: Create an Azure Databricks cluster](#task-2-create-an-azure-databricks-cluster)
-    - [Task 2: Install libraries on the Azure Databricks Cluster](#task-2-install-libraries-on-the-azure-databricks-cluster)
+    - [Task 3: Install libraries on the Azure Databricks Cluster](#task-3-install-libraries-on-the-azure-databricks-cluster)
     - [Task 4: Upload the Databricks notebook archive](#task-4-upload-the-databricks-notebook-archive)
     - [Task 5: Create your Azure Machine Learning Workspace](#task-5-create-your-azure-machine-learning-workspace)
 
@@ -124,7 +124,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
 6. Select **Create Cluster**.
 
-### Task 2: Install libraries on the Azure Databricks Cluster
+### Task 3: Install libraries on the Azure Databricks Cluster
 
 The notebooks you will run depends on certain Python libraries that will need to be installed in your cluster. The following steps walk you thru adding these dependencies. 
 
