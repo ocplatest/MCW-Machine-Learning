@@ -106,85 +106,111 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 ### Task 1: Create an automated machine learning experiment
 
-1. Navigate to your Azure Machine Learning workspace in the Azure Portal.
+1. Navigate to your Azure Machine Learning workspace in the Azure Portal. Select **Launch the new Azure Machine Learning studio**.
 
-2. Select `Automated machine learning` in the left navigation bar.
+    ![Navigate to the Azure Machine Learning workspace in the Azure Portal, open the Azure Machine Learning studio](images/automl-open-studio.png 'Open Azure Machine Learning studio')
 
-3. Select **Create Experiment**.
-   
-   ![Automated machine learning experiment section in Azure Machine Learning studio. The image highlights the "Create Experiment" button.](./images/02_CreateExperiment.png 'Create Experiment')
+    > **Note**: Alternatively, you can sign-in directly to the [Azure Machine Learning studio portal](https://ml.azure.com).
 
-4. Provide the experiment name: `Battery-Cycles` and select **Create a new compute**.
-   
-   ![The experiment name has "Battery-Cycles" entered into it and "Create a new compute" button is highlighted.](./images/03_NewExperiment_1.png 'Create New Experiment')
+2. Select `Automated ML` in the left navigation bar.
 
+    ![Open the Automated ML section in the Azure Machine Learning studio](images/automl-open.png 'Open Automated ML section')
 
-5. For the new compute, provide the following values and then select **Create**:
-   - Compute name: `auto-ml-compute`
-   - VM size: `STANDARD_DS11_V2`
-   - Select `Additional Settings` and set Minimum number of nodes and Maximum number of nodes to `1`.
-   
-      ![Create a New Compute dialog shows the values for various fields, such as Compute name.](./images/04_CreateNewCompute.png 'Create a New Compute')
+3. Select **+ New automated ML run**.
 
-6. Wait for the Compute to be ready and select **Next**. Now you will upload the training data. Start by downloading the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series.csv. Please ensure that the extension of the downloaded file is **csv**. Select **Upload** and then in the dialog that appears choose the file `daily-battery-time-series.csv` from your local disk.
-   
-   ![The image highlights the Upload button to start uploading the training data from your local computer.](./images/05_UploadDataFile.png 'Uploading training data')
+    ![Automated machine learning section in Azure Machine Learning studio. The image highlights the "New automated ML run" button.](./images/automl-new-run.png 'Create new automated ML run')
 
-7. Select **daily-battery-time-series.csv** and review the training data. Be sure to scroll to the right to observe the target column `Daily_Cycles_Used`. Toggle the switch above the following columns so the header reads `Ignored` for the first unlabeled column, `number_of_trips`, `lifetime_cycles_used` and `battery_rated_cycles` columns.
-   
-   ![The data preview section shows both selected and ignored features from the uploaded dataset.](./images/06_ReviewDataFile.png 'Select Features')
+4. Select **+ Create dataset** to start uploading your training data. Select the `From local files` option.
 
-8. Now, you will setup the Auto ML Experiment Basic Settings by providing the following values:
+    ![Create a new dataset to be used by the automated ML run.](images/automl-create-dataset-01.png 'Create dataset for automated ML run')
 
-   - Prediction Task: Select **Forecasting**
-   - Target column: Select **Daily_Cycles_Used**
-   - Time column: Select **Date**
-   - Series name column(s): **Battery_ID**
-   - Forecast Horizon: Enter `30`. This refers to forecasting out up to 30 days. 
+5. Select **Browse** and upload the `daily-battery-time-series.csv` file you downloaded in preparation of this lab. Verify that the correct file was uploaded by checking the `File name` column in the file list. Edit the **Name** field and ensure the `daily-battery-time-series` value is specified. Select **Next**.
 
-      ![The Auto ML experiment basic settings dialog shows values for various fields such as "Prediction Task", "Target column", etc.](./images/07_SetupExp_1.png 'Configure Experiment - Basic Settings')
+    ![Upload the file containing training data in the Create Dataset wizard.](images/automl-create-dataset-02.png 'Upload training data file')
 
-9. Select **Advanced Settings** to expand that area. Provide the following settings:
+6. Leave the default settings in the `Settings and preview` section and select **Next**.
 
-   - Primary metric: **normalized_root-mean_squared_error**
-   - Max number of iterations: **10**
-   - Number of Cross Validations: **5**
-   - Max concurrent iterations: **1**
-   
-     ![The Auto ML experiment advanced settings dialog shows values for various fields such as "Primary metric", "Max number of iterations", etc.](./images/08_SetupExp_2.png 'Configure Experiment - Advanced Settings')
+7. Review the training data schema. Toggle the `Include` switch next to the column name to exclude the `Path`, `Column1`, `Number_Of_Trips`, `Lifetime_Cycles_Used` and `Battery_Rated_Cycles` columns. Select **Next**.
 
-10. Select **Start** to run the experiment and begin automated machine learning process.
-    
+    ![The schema section shows both selected and ignored features from the uploaded dataset.](images/automl-create-dataset-03.png 'Select Features')
+
+8. Review the dataset details in the `Confirm details` section and select **Create**.
+
+9. Select the `daily-battery-time-series` dataset and then select **Next**.
+
+    ![Select the newly created dataset and continue the creation of the automated machine learning run](images/automl-create-dataset-04.png 'Select newly created dataset')
+
+10. Provide the experiment name: `Battery-Cycles` and select `Daily_Cycles_Used` as target column. Select **Create a new compute**.
+
+    ![The experiment name is "Battery-Cycles", the target column is "Daily_Cycles_Used", and "Create a new compute" button is highlighted.](images/automl-create-dataset-05.png 'Create New Experiment details')
+
+11. For the new compute, provide the following values and then select **Create**:
+
+    - Compute name: `auto-ml-compute`
+    - Select Virtual Machine size: `STANDARD_DS11_V2`
+    - Select `Additional Settings` and set Minimum number of nodes and Maximum number of nodes to `1`.
+
+    ![Create a New Compute dialog shows the values for various fields, such as Compute name.](images/automl-create-compute.png 'Create a New Compute')
+
+    The creation of the new compute may take several minutes. Once the process is completed, select **Next** in the `Configure run` section.
+
+12. Select the `Time series forecasting` task type and then select `Date` as the time column. Select **View additional configuration settings**.
+
+    ![Configure the automated machine learning task type as a time series forecasting task with "Date" as the time column.](images/automl-configure-task-01.png 'Configure time series forecasting task')
+
+13. For the automated machine learning run additional configurations, provide the following values and then select **Save**:
+
+    - Primary metric: `Normalized root mean squared error`
+
+    - Forecast Horizon: enter `30`. This refers to forecasting out up to 30 days.
+
+    - Group by column(s): select `Battery_ID`. This refers to columns that define distinct groups in the data, which can produce different forecasts based on each group.
+
+    - Training job time (hours) (in the`Exit criterion` section): enter `1`. This is the lowest value currently accepted.
+
+    - Metric score threshold: enter `0.1355`. When this threshold value will be reached for an iteration metric the training job will terminate.
+
+    ![The automated machine learning run additional configurations dialog shows values for various fields such as "Primary metric", "Forecast horizon" etc...](images/automl-configure-task-02.png 'Configure automated machine learning run additional configurations')
+
+14. Select **Finish** to start the new automated machine learning run.
+
+    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 9, 10, 11, 12, 13, and 14). Make sure you provide a lower value for `Metric score threshold` in step 13.
+
 ### Task 2: Review the experiment run results
 
-1. The experiment will run for about *5-10 minutes*. Once it completes you should examine the chart to observe the model performance for the primary metric for different iterations. 
-   
-   ![Run details shows Primary Metric verses Iterations graph.](./images/09_ReviewRunDetails_1.png 'Run Details - Graph View')
+1. Once the experiment completes, select `Details` to examine the details of the run containing information about the recommended model and the run summary.
 
-2. Scroll down to see a table view of different iterations and select the iteration with the best **normalized root mean square error** score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure ML Python SDK updates over time and gives you the best performing model at time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
-   
-   ![Run details shows a table view of Iteration details and corresponding Primary Metric values.](./images/010_ReviewRunDetails_2.png 'Run Details - Table View')
+   ![Run details shows recommended model and run summary.](images/automl-review-run-01.png 'Run details - recommended model and summary')
 
+2. Select `Models` to see a table view of different iterations and select the iteration with the best `Normalized root mean square error` score. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure Machine Learning Python SDK updates over time and gives you the best performing model at the time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
+
+    ![Run models shows a table view of iteration details and corresponding primary metric values.](images/automl-review-run-02.png 'Run Details - Models with their associated primary metric values')
 
 ### Task 3: Deploy the Best Model
-1. Scroll below the `ITERATIONS` table and select **Deploy Best Model** as shown.
-   
-   ![The "Deploy Best Model" button is highlighted.](./images/0141_DeployBestModel.png 'Deploy Best Model Button')
-   
-2. Provide the `Deployment name`, and `Deployment description`, and then select **Deploy** as shown:
 
-   - Deployment name: **battery-cycles**
-   - Deployment description: **Deploying best AutoML model to predict battery cycles.**
-   
-   ![The Deploy Best Model dialog that shows values for the two fields, deployment name and deployment description.](./images/0142_DeployBestModel.png 'Deploy Best Model Dialog')
+1. Return to the details of your experiment run and select **Deploy best model**.
 
-3. The model deployment, will register the model, create the deployment image, and deploy it as a scoring webservice in an Azure Container Instance (ACI). To view the deployed model, from the Azure Machine Learning workspace select **Deployments**.
-   
-   ![Viewing the list of deployed models in the Azure Machine Learning workspace](images/0143_DeployBestModel.png 'Deployed Models')
+    ![The "Deploy best model" for an automated machine learning experiment run.](images/automl-deploy-best-model-01.png 'Deploy best model')
+
+2. Provide the `Name`, `Description` and `Compute type`, and then select **Deploy**:
+
+    - Name: **battery-cycles**
+
+    - Description: **The best AutoML model to predict battery cycles.**
+
+    - Compute type: select `ACI`
+
+    ![The Deploy a model dialog that shows values name, description, and compute type.](images/automl-deploy-best-model-02.png 'Deploy the best model')
+
+3. The model deployment process will register the model, create the deployment image, and deploy it as a scoring webservice in an Azure Container Instance (ACI). To view the deployed model, from Azure Machine Learning studio select **Endpoints** and then select the `Real-time endpoints` tab.
+
+   ![Viewing the list of deployed model endpoints in the Azure Machine Learning workspace](images/automl-deploy-best-model-03.png 'Deployed model endpoints')
+
+   > **Note**: The `battery-cycles` endpoint will show up in a matter of seconds but the actual deployment takes several minutes. You can check the deployment state of the endpoint by selecting it and then selecting the `Details` tab. A successful de deployment will have a state of `Healthy`.
 
 4. If you see your model deployed in the above list, you are now ready to continue on to the next exercise.
 
-## Exercise 2: Understanding the automated ML generated forecast model using model explainability 
+## Exercise 2: Understanding the automated ML generated forecast model using model explainability
 
 Duration: 15 minutes
 

@@ -35,6 +35,7 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Install libraries on the Azure Databricks Cluster](#task-3-install-libraries-on-the-azure-databricks-cluster)
     - [Task 4: Upload the Databricks notebook archive](#task-4-upload-the-databricks-notebook-archive)
     - [Task 5: Create your Azure Machine Learning Workspace](#task-5-create-your-azure-machine-learning-workspace)
+    - [Task 6: Download training data to your local machine](#task-6-download-training-data-to-your-local-machine)
 
 <!-- /TOC -->
 
@@ -187,5 +188,9 @@ The notebooks you will run depends on certain Python libraries that will need to
     ![Entering configuration values in the Create Machine Learning Workspace dialog.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
 
 4. Select **Review + Create** and then select **Create** on the dialog that appears.
+
+### Task 6: Download training data to your local machine
+
+1. Download the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series-v2.csv. Please ensure that the name of the downloaded file is `daily-battery-time-series.csv`. Make a note of the location where you saved the file as you will need it during the lab.
 
 You should follow all these steps provided _before_ attending the Hands-on lab.
