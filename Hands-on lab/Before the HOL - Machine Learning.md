@@ -120,7 +120,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Driver Type**: Same as worker
 
-   ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form_2.png 'Create New Cluster Dialog')
+   ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form.png 'Create New Cluster Dialog')
 
 6. Select **Create Cluster**. It will take few minutes to create the cluster. Please ensure that the cluster state is running before proceeding further.
 
@@ -130,19 +130,19 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 1. From the left-hand menu in your Workspace, select **Clusters**.
 
-    ![The Clusters menu option.](images/image3-4.png "Clusters")
+    ![The Clusters menu option.](images/azure-databricks-clusters.png "Clusters")
 
 2. In the list of clusters, select your cluster. Make sure the state of the cluster is `Running`.
 
-    ![The list of Interactive Clusters.](images/image3-5.png "Interactive Clusters")
+    ![The list of Interactive Clusters.](images/azure-databricks-clusters-list.png "Interactive Clusters")
 
 3. Select the **Libraries** link and then select **Install New**.
 
-    ![The Libraries tab showing the Install New button.](images/image3-6.png "Install New")
+    ![The Libraries tab showing the Install New button.](images/azure-databricks-cluster-libraries.png "Install New")
 
 4. In the Library Source, select **PyPi** and in the Package text box type `azureml-sdk[automl_databricks,interpret]` and select **Install**.
 
-    ![The Install Library dialog showing PyPi as the source and azureml-sdk as the package.](images/image3-7_0.png "Install Library")
+    ![The Install Library dialog showing PyPi as the source and azureml-sdk as the package.](images/azure-databricks-install-library.png "Install Library")
 
 5. An entry for azureml-sdk will appear in the list with a status of installing followed by installed.
 

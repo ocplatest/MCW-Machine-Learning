@@ -54,27 +54,27 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 ## Abstract and learning objectives 
 
-In this hands-on lab, you will use Azure Databricks in combination with Azure Machine Learning service to build, train and deploy desired models. You will learn how to train a forecasting model against time-series data, without any code, by using automated machine learning, and how to score data in real-time using Spark Structure Streaming within Azure Databricks.  You will create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data and train a Natural Language Processing (NLP) text classification model using Keras.
+In this hands-on lab, you will use Azure Databricks in combination with Azure Machine Learning to build, train and deploy desired models. You will learn how to train a forecasting model against time-series data, without any code, by using automated machine learning, and how to score data in real-time using Spark Structure Streaming within Azure Databricks.  You will create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data and train a Natural Language Processing (NLP) text classification model using Keras.
 
-At the end of this lab, you will be better able to build solutions leveraging the Azure Machine Learning service and Azure Databricks.
+At the end of this lab, you will improve your ability to build solutions leveraging Azure Machine Learning and Azure Databricks.
 
 ## Overview
 
-Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients. 
+Trey Research Inc. delivers innovative solutions for manufacturers. They specialize in identifying and solving problems for manufacturers that can run the range from automating away mundane but time-intensive processes to delivering cutting edge approaches that provide new opportunities for their manufacturing clients.
 
 Trey Research is looking to provide the next generation experience for connected car manufacturers by enabling them to utilize AI to decide when to pro-actively reach out to the customer thru alerts delivered directly to the car's in-dash information and entertainment head unit. For their proof of concept (PoC), they would like to focus on two maintenance related scenarios.
 
-In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Then each car is evaluated for out compliance components. 
+In the first scenario, Trey Research recently instituted new regulations defining what parts are compliant or out of compliance. Rather than rely on their technicians to assess compliance, they would like to automatically assess the compliance based on component notes already entered by authorized technicians. Specifically, they are looking to leverage Deep Learning technologies with Natural Language Processing techniques to scan through vehicle specification documents to find compliance issues with new regulations. Then each car is evaluated for out compliance components.
 
 In the second scenario, Trey Research would like to predict the likelihood of battery failure based on the telemetry stream of time series data that the car provides about how the battery performs when the car is started, how it is charging while running and how well it is holding its charge, among other factors. If they detect a battery failure is imminent within the next 30 days, they would like to send an alert.
 
-Upon detection of an out of compliance component or a battery at risk of failure, they would like to be able to send an alert directly to the customer inviting them to schedule a service appointment to replace the part. 
+Upon detection of an out of compliance component or a battery at risk of failure, they would like to be able to send an alert directly to the customer inviting them to schedule a service appointment to replace the part.
 
-In building this PoC, Trey Research wants to understand how they might use machine learning or deep learning in both scenarios, and standardize the platform that would support the data processing, model management and inferencing aspects of each. 
+In building this PoC, Trey Research wants to understand how they might use machine learning or deep learning in both scenarios, and standardize the platform that would support the data processing, model management and inferencing aspects of each.
 
-They are also interested to learn what new capabilities Azure provides that might help them to document and explain the models that are created to non-data scientists or might accelerate their time to creating production ready, performant models. 
+They are also interested to learn what new capabilities Azure provides that might help them to document and explain the models that are created to non-data scientists or might accelerate their time to creating production ready, performant models.
 
-In this lab, you will use Azure Databricks in combination with Azure Machine Learning service to build, train and deploy the desired models. 
+In this lab, you will use Azure Databricks in combination with Azure Machine Learning to build, train and deploy the desired models.
 
 ## Solution architecture
 
@@ -82,13 +82,13 @@ The following diagram summarizes the key components and processing steps in the 
 
 ![Overall solution diagram, described in the text that follows.](images/lab-architecture.png 'Solution Architecture')
 
-In this lab, models are trained using both Azure Databricks (for deep learning with the PyTorch and Keras frameworks) and Azure Machine Learning compute (for automated machine learning using the user experience in the Azure Portal). Models are registered with the Azure Machine Learning Workspace. The data used for model training is read from Azure Storage. 
+In this lab, models are trained using both Azure Databricks (for deep learning with the PyTorch and Keras frameworks) and Azure Machine Learning compute (for automated machine learning using the user experience in the Azure Machine Learning studio). Models are registered with the Azure Machine Learning Workspace. The data used for model training is read from Azure Storage.
 
-The scoring is performed using notebooks running within Azure notebooks, which show how to load and apply the respective models against the data provided. 
+The scoring is performed using notebooks running within Azure notebooks, which show how to load and apply the respective models against the data provided.
 
 ## Requirements
 
-1.  Microsoft Azure subscription must be pay-as-you-go or MSDN
+1. Microsoft Azure subscription must be pay-as-you-go or MSDN
 
     - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
@@ -102,7 +102,7 @@ Refer to the Before the hands-on lab setup guide manual before continuing to the
 
 Duration: 30 minutes
 
-In this exercise, you will create a model that predicts battery failure from time-series data using the visual interface to automated machine learning in an Azure Machine Learning workspace. 
+In this exercise, you will create a model that predicts battery failure from time-series data using the visual interface to automated machine learning in an Azure Machine Learning workspace.
 
 ### Task 1: Create an automated machine learning experiment
 
@@ -112,7 +112,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 3. Select **Create Experiment**.
    
-   ![Automated machine learning experiment section in Azure Portal. The image highlights the "Create Experiment" button.](./images/02_CreateExperiment.png 'Create Experiment')
+   ![Automated machine learning experiment section in Azure Machine Learning studio. The image highlights the "Create Experiment" button.](./images/02_CreateExperiment.png 'Create Experiment')
 
 4. Provide the experiment name: `Battery-Cycles` and select **Create a new compute**.
    
@@ -238,21 +238,20 @@ To avoid unexpected charges, it is recommended that you clean up all of your lab
 
 ### Task 1: Clean up lab resources
 
-1.  Navigate to the Azure Portal and locate the `MCW-AI-Lab` Resource Group you created for this lab.
+1. Navigate to the Azure Portal and locate the `MCW-AI-Lab` Resource Group you created for this lab.
 
-2.  Select **Delete resource group** from the command bar.
+2. Select **Delete resource group** from the command bar.
 
-    ![Screenshot of the Delete resource group button.](images/image71.png 'Delete resource group button')
+    ![Screenshot of the Delete resource group button.](images/cleanup-delete-resource-group.png 'Delete resource group button')
 
-3.  In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
+3. In the confirmation dialog that appears, enter the name of the resource group and select **Delete**.
 
-4.  Wait for the confirmation that the Resource Group has been successfully deleted. If you don't wait, and the delete fails for some reason, you may be left with resources running that were not expected. You can monitor using the Notifications dialog, which is accessible from the Alarm icon.
+4. Wait for the confirmation that the Resource Group has been successfully deleted. If you don't wait, and the delete fails for some reason, you may be left with resources running that were not expected. You can monitor using the Notifications dialog, which is accessible from the Alarm icon.
 
-    ![The Notifications dialog box has a message stating that the resource group is being deleted.](images/image72.png 'Notifications dialog box')
+    ![The Notifications dialog box has a message stating that the resource group is being deleted.](images/cleanup-delete-resource-group-notification-01.png 'Notifications dialog box')
 
-5.  When the Notification indicates success, the cleanup is complete.
+5. When the Notification indicates success, the cleanup is complete.
 
-    ![The Notifications dialog box has a message stating that the resource group has been deleted.](images/image73.png 'Notifications dialog box')
+    ![The Notifications dialog box has a message stating that the resource group has been deleted.](images/cleanup-delete-resource-group-notification-02.png 'Notifications dialog box')
 
 You should follow all steps provided _after_ attending the Hands-on lab.
-
