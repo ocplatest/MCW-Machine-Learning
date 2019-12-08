@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-September 2019
+November 2019
 </div>
 
 
@@ -38,11 +38,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
 
 <!-- /TOC -->
 
-# Machine Learning before the hands-on lab setup guide 
+# Machine Learning before the hands-on lab setup guide
 
 ## Requirements
 
-1.  Microsoft Azure subscription must be pay-as-you-go or MSDN
+1. Microsoft Azure subscription must be pay-as-you-go or MSDN
 
     - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
@@ -56,11 +56,13 @@ Duration: 30 minutes
 
 Azure Databricks is an Apache Spark-based analytics platform optimized for Azure that supports data engineering and machine learning and deep learning workloads.
 
-1. In the [Azure Portal](https://portal.azure.com) (https://portal.azure.com), select **+ Create a resource**, then type "Azure Databricks" into the search bar. Select Azure Databricks from the results.
+1. In the [Azure Portal](https://portal.azure.com), select **+ Create a resource**, then type "Azure Databricks" into the search bar. Select Azure Databricks from the results.
 
-    ![Select create a resource, type in Azure Databricks, then select it from the results list.](images/create-azure-databricks-resource.png 'Create a resource')
+    ![Select create a resource, type in Azure Databricks, then select it from the results list.](images/create-azure-databricks-resource-01.png 'Create a resource')
 
-2. Select Create on the bottom of the blade that follows.
+2. Select **Create**.
+
+    ![Select Create on the Azure Databricks service page.](image/../images/create-azure-databricks-resource-02.png 'Create an Azure Databricks workspace')
 
 3. Set the following configuration on the Azure Databricks Service creation form:
 
@@ -80,7 +82,7 @@ Azure Databricks is an Apache Spark-based analytics platform optimized for Azure
 
 ### Task 2: Create an Azure Databricks cluster
 
-You have provisioned an Azure Databricks workspace, and now you need to create a new cluster within the workspace. 
+You have provisioned an Azure Databricks workspace, and now you need to create a new cluster within the workspace.
 
 1. From the side menu in the Azure portal, select **Resource groups**, then enter your resource group name (e.g., `MCW-AI-Lab`) into the filter box, and select it from the list.
 
@@ -106,9 +108,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Cluster Mode**: Standard
 
-    - **Databricks Runtime Version**: Runtime: 5.5 LTS ML (Scala 2.11, Spark 2.4.3)
-
-    - **Python Version**: 3
+    - **Databricks Runtime Version**: Runtime: 6.2 ML (Scala 2.11, Spark 2.4.4)
 
     - **Enable autoscaling**: Uncheck this option.
 
@@ -116,27 +116,27 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
     - **Worker Type**: Standard_DS3_v2
 
-    - **Driver Type**: Same as worker
+    - **Workers**: 1
 
-    - **Workers**: 1 
+    - **Driver Type**: Same as worker
 
    ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form_2.png 'Create New Cluster Dialog')
 
-6. Select **Create Cluster**.
+6. Select **Create Cluster**. It will take few minutes to create the cluster. Please ensure that the cluster state is running before proceeding further.
 
 ### Task 3: Install libraries on the Azure Databricks Cluster
 
-The notebooks you will run depends on certain Python libraries that will need to be installed in your cluster. The following steps walk you thru adding these dependencies. 
+The notebooks you will run depends on certain Python libraries that will need to be installed in your cluster. The following steps walk you thru adding these dependencies.
 
 1. From the left-hand menu in your Workspace, select **Clusters**.
 
     ![The Clusters menu option.](images/image3-4.png "Clusters")
 
-2. In the list of clusters, select your cluster.
+2. In the list of clusters, select your cluster. Make sure the state of the cluster is `Running`.
 
     ![The list of Interactive Clusters.](images/image3-5.png "Interactive Clusters")
 
-3. Select the **Libraries** link and then select **Attach New**. 
+3. Select the **Libraries** link and then select **Install New**.
 
     ![The Libraries tab showing the Install New button.](images/image3-6.png "Install New")
 
@@ -146,7 +146,6 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 5. An entry for azureml-sdk will appear in the list with a status of installing followed by installed.
 
-
 ### Task 4: Upload the Databricks notebook archive
 
 1. Within the Azure Databricks Workspace, using the command bar on the left, select Workspace, Users and select your username (the entry with house icon).
@@ -154,9 +153,8 @@ The notebooks you will run depends on certain Python libraries that will need to
 2. In the blade that appears, select the downwards pointing chevron next to your name, and select Import.
 
 3. On the Import Notebooks dialog, select URL and paste in the following URL:
-    ```
-    https://github.com/microsoft/MCW-Machine-Learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true
-    ```
+
+    `https://github.com/microsoft/MCW-Machine-Learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true`
 
 4. Select **Import**.
 
@@ -166,13 +164,15 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 ### Task 5: Create your Azure Machine Learning Workspace
 
-1.  In the [Azure Portal](https://portal.azure.com) (https://portal.azure.com), select **+ Create a resource**, then type `Azure Machine Learning` into the search bar. Select `Machine Learning service workspaces` from the results.
+1. In the [Azure Portal](https://portal.azure.com), select **+ Create a resource**, then type `Azure Machine Learning` into the search bar. Select `Machine Learning` from the results.
 
-    ![Select create a resource, type in Azure Machine Learning, then select it from the results list.](images/create-aml-resource.png 'Create a resource')
+    ![Select create a resource, type in Azure Machine Learning, then select it from the results list.](images/create-aml-resource-01.png 'Create a resource')
 
-2. Select **Create** on the blade that follows.
+2. Select **Create**.
 
-3.  In the Create Machine Learning Workspace dialog that appears, provide the following values:
+    ![Select Create on the Machine Learning service page.](images/create-aml-resource-02.png 'Create an Azure Machine Learning workspace')
+
+3. In the Create Machine Learning Workspace dialog that appears, provide the following values:
 
     - **Workspace Name**: AML-workspace
 
@@ -182,8 +182,10 @@ The notebooks you will run depends on certain Python libraries that will need to
 
     - **Location**: Choose a region closest to you (it is OK if the Azure Databricks Workspace and the Azure Machine Learning Workspace are in different locations).
 
-    ![Entering the previously provided value in the Create Machine Learning Workspace dialog.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
+    - **Workspace edition**: Select `Enterprise`.
 
-4.  Select **Review + Create** and then select **Create** on the dialog that appears.
+    ![Entering configuration values in the Create Machine Learning Workspace dialog.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
+
+4. Select **Review + Create** and then select **Create** on the dialog that appears.
 
 You should follow all these steps provided _before_ attending the Hands-on lab.
