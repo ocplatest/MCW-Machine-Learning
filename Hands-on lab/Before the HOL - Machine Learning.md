@@ -127,7 +127,7 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
 ### Task 3: Install libraries on the Azure Databricks Cluster
 
-The notebooks you will run depends on certain Python libraries that will need to be installed in your cluster. The following steps walk you thru adding these dependencies.
+The notebooks you will run depends on certain Python libraries that will need to be installed in your cluster. The following steps walk you through adding these dependencies.
 
 1. From the left-hand menu in your Workspace, select **Clusters**.
 
