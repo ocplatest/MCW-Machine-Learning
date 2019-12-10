@@ -37,13 +37,11 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create an automated machine learning experiment](#task-1-create-an-automated-machine-learning-experiment)
     - [Task 2: Review the experiment run results](#task-2-review-the-experiment-run-results)
     - [Task 3: Deploy the Best Model](#task-3-deploy-the-best-model)
-  - [Exercise 2: Understanding the automated ML generated forecast model using model explainability](#exercise-2-understanding-the-automated-ml-generated-forecast-model-using-model-explainability)
-    - [Task 1: Explore the model using a notebook](#task-1-explore-the-model-using-a-notebook)
-  - [Exercise 3: Creating a deep learning model (RNN) for time series data and registering the model](#exercise-3-creating-a-deep-learning-model-rnn-for-time-series-data-and-registering-the-model)
+  - [Exercise 2: Creating a deep learning model (RNN) for time series data and registering the model](#exercise-2-creating-a-deep-learning-model-rnn-for-time-series-data-and-registering-the-model)
     - [Task 1: Create the model using a notebook](#task-1-create-the-model-using-a-notebook)
-  - [Exercise 4: Using a forecast model for scoring of streaming telemetry](#exercise-4-using-a-forecast-model-for-scoring-of-streaming-telemetry)
+  - [Exercise 3: Using a forecast model for scoring of streaming telemetry](#exercise-3-using-a-forecast-model-for-scoring-of-streaming-telemetry)
     - [Task 1: Create the streaming job using a notebook](#task-1-create-the-streaming-job-using-a-notebook)
-  - [Exercise 5: Creating a deep learning text classification model](#exercise-5-creating-a-deep-learning-text-classification-model)
+  - [Exercise 4: Creating a deep learning text classification model](#exercise-4-creating-a-deep-learning-text-classification-model)
     - [Task 1: Create the classification model using a notebook](#task-1-create-the-classification-model-using-a-notebook)
   - [After the hands-on lab](#after-the-hands-on-lab)
     - [Task 1: Clean up lab resources](#task-1-clean-up-lab-resources)
@@ -210,19 +208,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 4. If you see your model deployed in the above list, you are now ready to continue on to the next exercise.
 
-## Exercise 2: Understanding the automated ML generated forecast model using model explainability
-
-Duration: 15 minutes
-
-### Task 1: Explore the model using a notebook
-
-1. Browse to your Azure Databricks Workspace and open `AI with Databricks and AML \ Model Explainability`. This is the notebook you will step thru executing in this lab.
-
-2. Follow the instructions within the notebook to complete the lab.
-3. Note that because of version differences between the local environment of the cluster and the model training environment sometimes you may see warning messages when you first load the best model from the AutoML Run. You should be able to ignore the warning messages and successfully complete the lab. 
-4. Note that in this notebook, and the following notebooks, we are using the default storage account in Azure Databricks. However, the best practice in enterprises is to use a shared storage account that you mount to your Azure Databricks. Also, you can use [Secrets in Azure Key Vaults](https://docs.azuredatabricks.net/user-guide/secrets/secrets.html) that can be read by the notebooks to save sensitive data, such as your subscription ID.
-
-## Exercise 3: Creating a deep learning model (RNN) for time series data and registering the model
+## Exercise 2: Creating a deep learning model (RNN) for time series data and registering the model
 
 Duration: 45 minutes
 
@@ -232,7 +218,7 @@ Duration: 45 minutes
 
 2. Follow the instructions within the notebook to complete the lab.
 
-## Exercise 4: Using a forecast model for scoring of streaming telemetry
+## Exercise 3: Using a forecast model for scoring of streaming telemetry
 
 Duration: 45 minutes
 
@@ -244,7 +230,7 @@ In this exercise, you will apply the forecast model to a Spark streaming job in 
 
 2. Follow the instructions within the notebook to complete the lab.
 
-## Exercise 5: Creating a deep learning text classification model
+## Exercise 4: Creating a deep learning text classification model
 
 Duration: 45 minutes
 
@@ -256,7 +242,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 2. Follow the instructions within the notebook to complete the lab.
 
-## After the hands-on lab 
+## After the hands-on lab
 
 Duration: 5 minutes
 
