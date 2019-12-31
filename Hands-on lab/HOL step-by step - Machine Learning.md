@@ -110,7 +110,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     > **Note**: Alternatively, you can sign-in directly to the [Azure Machine Learning studio portal](https://ml.azure.com).
 
-2. Select `Automated ML` in the left navigation bar.
+2. Select **Automated ML** in the left navigation bar.
 
     ![Open the Automated ML section in the Azure Machine Learning studio](images/automl-open.png 'Open Automated ML section')
 
@@ -164,7 +164,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     - Group by column(s): select `Battery_ID`. This refers to columns that define distinct groups in the data, which can produce different forecasts based on each group.
 
-    - Training job time (hours) (in the`Exit criterion` section): enter `1`. This is the lowest value currently accepted.
+    - Training job time (hours) (in the `Exit criterion` section): enter `1`. This is the lowest value currently accepted.
 
     - Metric score threshold: enter `0.1355`. When this threshold value will be reached for an iteration metric the training job will terminate.
 
@@ -196,7 +196,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     - Description: **The best AutoML model to predict battery cycles.**
 
-    - Compute type: select `ACI`
+    - Compute type: Select `ACI`.
 
     ![The Deploy a model dialog that shows values name, description, and compute type.](images/automl-deploy-best-model-02.png 'Deploy the best model')
 
