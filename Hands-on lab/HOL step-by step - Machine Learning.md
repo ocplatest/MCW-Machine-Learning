@@ -126,7 +126,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     ![Provide name for the dataset in the basic info section.](images/automl-create-dataset-02a.png 'Basic info: Name')
 
-6. Select **Browse** and upload the `daily-battery-time-series.csv` file you downloaded in preparation of this lab and then select **Next**.
+6. Select **Browse** and upload the `daily-battery-time-series-v2.csv` file you downloaded in preparation of this lab and then select **Next**.
 
     ![Upload the file containing training data in the Create Dataset wizard.](images/automl-create-dataset-02b.png 'Upload training data file')
 

@@ -191,6 +191,6 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 ### Task 6: Download training data to your local machine
 
-1. Download the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series-v2.csv. Please ensure that the name of the downloaded file is `daily-battery-time-series.csv`. Make a note of the location where you saved the file as you will need it during the lab.
+1. Download the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series-v2.csv. Please ensure that the name of the downloaded file is `daily-battery-time-series-v2.csv`. Make a note of the location where you saved the file as you will need it during the lab.
 
 You should follow all these steps provided _before_ attending the Hands-on lab.
