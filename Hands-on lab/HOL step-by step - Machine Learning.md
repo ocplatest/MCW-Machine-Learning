@@ -122,47 +122,50 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     ![Create a new dataset to be used by the automated ML run.](images/automl-create-dataset-01.png 'Create dataset for automated ML run')
 
-5. Select **Browse** and upload the `daily-battery-time-series.csv` file you downloaded in preparation of this lab. Verify that the correct file was uploaded by checking the `File name` column in the file list. Edit the **Name** field and ensure the `daily-battery-time-series` value is specified. Select **Next**.
+5. In the `Basic info` section provide **Name** as `daily-battery-time-series` and select **Next**.
 
-    ![Upload the file containing training data in the Create Dataset wizard.](images/automl-create-dataset-02.png 'Upload training data file')
+    ![Provide name for the dataset in the basic info section.](images/automl-create-dataset-02a.png 'Basic info: Name')
 
-6. Leave the default settings in the `Settings and preview` section and select **Next**.
+6. Select **Browse** and upload the `daily-battery-time-series-v2.csv` file you downloaded in preparation of this lab and then select **Next**.
 
-7. Review the training data schema. Toggle the `Include` switch next to the column name to exclude the `Path`, `Column1`, `Number_Of_Trips`, `Lifetime_Cycles_Used` and `Battery_Rated_Cycles` columns. Select **Next**.
+    ![Upload the file containing training data in the Create Dataset wizard.](images/automl-create-dataset-02b.png 'Upload training data file')
+
+7. Leave the default settings in the `Settings and preview` section and select **Next**.
+
+8. Review the training data schema. Toggle the `Include` switch next to the column name to exclude the `Path`, `Column1`, `Number_Of_Trips`, `Lifetime_Cycles_Used` and `Battery_Rated_Cycles` columns. Select **Next**.
 
     ![The schema section shows both selected and ignored features from the uploaded dataset.](images/automl-create-dataset-03.png 'Select Features')
 
-8. Review the dataset details in the `Confirm details` section and select **Create**.
+9. Review the dataset details in the `Confirm details` section and select **Create**.
 
-9. Select the `daily-battery-time-series` dataset and then select **Next**.
+10. Select the `daily-battery-time-series` dataset and then select **Next**.
 
     ![Select the newly created dataset and continue the creation of the automated machine learning run](images/automl-create-dataset-04.png 'Select newly created dataset')
 
-10. Provide the experiment name: `Battery-Cycles` and select `Daily_Cycles_Used` as target column. Select **Create a new compute**.
+11. Provide the experiment name: `Battery-Cycles` and select `Daily_Cycles_Used` as target column. Select **Create a new compute**.
 
     ![The experiment name is "Battery-Cycles", the target column is "Daily_Cycles_Used", and "Create a new compute" button is highlighted.](images/automl-create-dataset-05.png 'Create New Experiment details')
 
-11. For the new compute, provide the following values and then select **Create**:
+12. For the new compute, provide the following values and then select **Create**:
 
     - Compute name: `auto-ml-compute`
     - Select Virtual Machine size: `STANDARD_DS11_V2`
-    - Select `Additional Settings` and set Minimum number of nodes and Maximum number of nodes to `1`.
+    - Minimum number of nodes: `1`
+    - Maximum number of nodes: `1`
 
     ![Create a New Compute dialog shows the values for various fields, such as Compute name.](images/automl-create-compute.png 'Create a New Compute')
 
     The creation of the new compute may take several minutes. Once the process is completed, select **Next** in the `Configure run` section.
 
-12. Select the `Time series forecasting` task type and then select `Date` as the time column. Select **View additional configuration settings**.
+13. Select the `Time series forecasting` task type and then select `Date` as the time column and `Battery_ID` as group by column. Select **View additional configuration settings**.
 
-    ![Configure the automated machine learning task type as a time series forecasting task with "Date" as the time column.](images/automl-configure-task-01.png 'Configure time series forecasting task')
+    ![Configure the automated machine learning task type as a time series forecasting task with "Date" as the time column and "Battery_ID" as group by column.](images/automl-configure-task-01.png 'Configure time series forecasting task')
 
-13. For the automated machine learning run additional configurations, provide the following values and then select **Save**:
+14. For the automated machine learning run additional configurations, provide the following values and then select **Save**:
 
     - Primary metric: `Normalized root mean squared error`
 
     - Forecast Horizon: enter `30`. This refers to forecasting out up to 30 days.
-
-    - Group by column(s): select `Battery_ID`. This refers to columns that define distinct groups in the data, which can produce different forecasts based on each group.
 
     - Training job time (hours) (in the `Exit criterion` section): enter `1`. This is the lowest value currently accepted.
 
@@ -170,9 +173,9 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     ![The automated machine learning run additional configurations dialog shows values for various fields such as "Primary metric", "Forecast horizon" etc...](images/automl-configure-task-02.png 'Configure automated machine learning run additional configurations')
 
-14. Select **Finish** to start the new automated machine learning run.
+15. Select **Finish** to start the new automated machine learning run.
 
-    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 9, 10, 11, 12, 13, and 14). Make sure you provide a lower value for `Metric score threshold` in step 13.
+    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 10, 11, 12, 13, 14, and 15). Make sure you provide a lower value for `Metric score threshold` in step 14.
 
 ### Task 2: Review the experiment run results
 
