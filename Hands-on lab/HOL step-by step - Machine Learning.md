@@ -130,7 +130,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     ![Upload the file containing training data in the Create Dataset wizard.](images/automl-create-dataset-02b.png 'Upload training data file')
 
-7. Leave the default settings in the `Settings and preview` section and select **Next**.
+7. On the Settings and preview panel, set the **column headers** drop down to `All files have same headers`, and then select **Next**.
 
 8. Review the training data schema. Toggle the `Include` switch next to the column name to exclude the `Path`, `Column1`, `Number_Of_Trips`, `Lifetime_Cycles_Used` and `Battery_Rated_Cycles` columns. Select **Next**.
 
