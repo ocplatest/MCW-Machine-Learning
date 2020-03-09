@@ -184,7 +184,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 14. Select **Finish** to start the new automated machine learning run.
 
-    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 10, 11, 12, 13, 14, and 15). Make sure you provide a lower value for `Metric score threshold` in step 14.
+    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 9, 10, 12, 13, and 14). Make sure you provide a lower value for `Metric score threshold` in step 13.
 
 ### Task 2: Review the experiment run results
 
