@@ -9,7 +9,7 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-November 2019
+March 2020
 </div>
 
 
@@ -157,6 +157,10 @@ The notebooks you will run depends on certain Python libraries that will need to
 
     `https://github.com/microsoft/MCW-Machine-Learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true`
 
+    **Please use the URL below for testing the updates. Once you accept the updates, please delete this note and the URL below.**
+
+    `https://github.com/shirolkar/MCW-Machine-Learning/blob/master/Hands-on%20lab/notebooks/AI%20with%20Databricks%20and%20AML.dbc?raw=true`
+
 4. Select **Import**.
 
 5. A folder named after the archive should appear. Select that folder.
@@ -188,9 +192,5 @@ The notebooks you will run depends on certain Python libraries that will need to
     ![Entering configuration values in the Create Machine Learning Workspace dialog.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
 
 4. Select **Review + Create** and then select **Create** on the dialog that appears.
-
-### Task 6: Download training data to your local machine
-
-1. Download the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series-v2.csv. Please ensure that the name of the downloaded file is `daily-battery-time-series-v2.csv`. Make a note of the location where you saved the file as you will need it during the lab.
 
 You should follow all these steps provided _before_ attending the Hands-on lab.
