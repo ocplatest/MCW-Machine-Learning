@@ -40,8 +40,8 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 1: Create the model using a notebook](#task-1-create-the-model-using-a-notebook)
   - [Exercise 3: Using a forecast model for scoring of streaming telemetry](#exercise-3-using-a-forecast-model-for-scoring-of-streaming-telemetry)
     - [Task 1: Create the streaming job using a notebook](#task-1-create-the-streaming-job-using-a-notebook)
-  - [Exercise 4: Creating, training and tracking a deep learning text classification model with Azure Databricks, MLflow and Azure Machine Learning](#exercise-4-Creating,-training-and-tracking-a-deep-learning-text-classification-model-with-Azure-Databricks,-MLflow-and-Azure-Machine-Learning)
-    - [Task 1: Create, train and track the classification model using a notebook](#Task-1-Create,-train-and-track-the-classification-model-using-a-notebook)
+  - [Exercise 4: Creating, training and tracking a deep learning text classification model with Azure Databricks, MLflow and Azure Machine Learning](#exercise-4-Creating-training-and-tracking-a-deep-learning-text-classification-model-with-Azure-Databricks-MLflow-and-Azure-Machine-Learning)
+    - [Task 1: Create, train and track the classification model using a notebook](#Task-1-Create-train-and-track-the-classification-model-using-a-notebook)
     - [Task 2: Review model performance metrics and training artifacts in Azure Machine Learning workspace](#Task-2-Review-model-performance-metrics-and-training-artifacts-in-Azure-Machine-Learning-workspace)
   - [After the hands-on lab](#after-the-hands-on-lab)
     - [Task 1: Clean up lab resources](#task-1-clean-up-lab-resources)
@@ -192,7 +192,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
    ![Run details shows recommended model and run summary.](images/automl-review-run-01.png 'Run details - recommended model and summary')
 
-2. Select `Models` to see a table view of different iterations and the `Normalized root mean square error` score for each iteration. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure Machine Learning Python SDK updates over time and gives you the best performing model at the time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
+2. Select `Models` to see a table view of different iterations and the `Normalized root mean squared error` score for each iteration. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure Machine Learning Python SDK updates over time and gives you the best performing model at the time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
 
     ![Run models shows a table view of iteration details and corresponding primary metric values.](images/automl-review-run-02.png 'Run Details - Models with their associated primary metric values')
 
@@ -202,7 +202,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 4. Review the various **Run Metrics** to evaluate the model performance.
 
-    ![Model details shows model performance on various evaluation metrics.](images/automl-review-run-04.png 'Model details - Run Metrics')
+    ![Model details show model performance on various evaluation metrics.](images/automl-review-run-04.png 'Model details - Run Metrics')
 
 5. Next, select **Visualizations** to review the model performance curve: `Predicted vs True`. When you are done, select **Run Detail** to return to the details of your experiment.
 

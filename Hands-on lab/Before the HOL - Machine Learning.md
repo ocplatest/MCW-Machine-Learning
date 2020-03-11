@@ -35,7 +35,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Install libraries on the Azure Databricks Cluster](#task-3-install-libraries-on-the-azure-databricks-cluster)
     - [Task 4: Upload the Databricks notebook archive](#task-4-upload-the-databricks-notebook-archive)
     - [Task 5: Create your Azure Machine Learning Workspace](#task-5-create-your-azure-machine-learning-workspace)
-    - [Task 6: Download training data to your local machine](#task-6-download-training-data-to-your-local-machine)
 
 <!-- /TOC -->
 
