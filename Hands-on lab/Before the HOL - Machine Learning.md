@@ -9,9 +9,8 @@ Before the hands-on lab setup guide
 </div>
 
 <div class="MCWHeader3">
-November 2019
+March 2020
 </div>
-
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
 
@@ -19,7 +18,7 @@ Microsoft may have patents, patent applications, trademarks, copyrights, or othe
 
 The names of manufacturers, products, or URLs are provided for informational purposes only and Microsoft makes no representations and warranties, either expressed, implied, or statutory, regarding these manufacturers or the use of the products with any Microsoft technologies. The inclusion of a manufacturer or product does not imply endorsement of Microsoft of the manufacturer or product. Links may be provided to third party sites. Such sites are not under the control of Microsoft and Microsoft is not responsible for the contents of any linked site or any link contained in a linked site, or any changes or updates to such sites. Microsoft is not responsible for webcasting or any other form of transmission received from any linked site. Microsoft is providing these links to you only as a convenience, and the inclusion of any link does not imply endorsement of Microsoft of the site or the products contained therein.
 
-© 2019 Microsoft Corporation. All rights reserved.
+&copy; 2020 Microsoft Corporation. All rights reserved.
 
 Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/intellectualproperty/Trademarks/Usage/General.aspx> are trademarks of the Microsoft group of companies. All other trademarks are property of their respective owners.
 
@@ -35,7 +34,6 @@ Microsoft and the trademarks listed at <https://www.microsoft.com/en-us/legal/in
     - [Task 3: Install libraries on the Azure Databricks Cluster](#task-3-install-libraries-on-the-azure-databricks-cluster)
     - [Task 4: Upload the Databricks notebook archive](#task-4-upload-the-databricks-notebook-archive)
     - [Task 5: Create your Azure Machine Learning Workspace](#task-5-create-your-azure-machine-learning-workspace)
-    - [Task 6: Download training data to your local machine](#task-6-download-training-data-to-your-local-machine)
 
 <!-- /TOC -->
 
@@ -59,15 +57,15 @@ Azure Databricks is an Apache Spark-based analytics platform optimized for Azure
 
 1. In the [Azure Portal](https://portal.azure.com), select **+ Create a resource**, then type "Azure Databricks" into the search bar. Select Azure Databricks from the results.
 
-    ![Select create a resource, type in Azure Databricks, then select it from the results list.](images/create-azure-databricks-resource-01.png 'Create a resource')
+    ![Azure Databricks is entered into the search field. Azure Databricks is selected from the search results list type-ahead suggestion.](images/create-azure-databricks-resource-01.png 'Create a resource')
 
 2. Select **Create**.
 
-    ![Select Create on the Azure Databricks service page.](image/../images/create-azure-databricks-resource-02.png 'Create an Azure Databricks workspace')
+    ![On the Azure Databricks resource overview page, the Create button is highlighted.](image/../images/create-azure-databricks-resource-02.png 'Create an Azure Databricks workspace')
 
 3. Set the following configuration on the Azure Databricks Service creation form:
 
-    - **Workspace name**: Enter a unique name as indicated by a green checkmark.
+    - **Workspace name**: Enter a unique name, this will be indicated by a green checkmark.
 
     - **Subscription**: Select the subscription you are using for this hands-on lab.
 
@@ -75,9 +73,9 @@ Azure Databricks is an Apache Spark-based analytics platform optimized for Azure
 
     - **Location**: Select a region close to you. ***(If you are using an Azure Pass, select South Central US.)***
 
-    - **Pricing**: Select Premium.
+    - **Pricing**: Select **Premium (+ Role-based access controls)**
 
-    ![Complete the Azure Databricks Service creation form with the options as outlined above.](images/azure-databricks-create-blade.png 'Azure Databricks Service Creation Dialog')
+    ![The Azure Databricks Service creation form is populated with the values outlined above.](images/azure-databricks-create-blade.png 'Azure Databricks Service Creation Dialog')
 
 4. Select **Create** to finish and submit.
 
@@ -89,39 +87,39 @@ You have provisioned an Azure Databricks workspace, and now you need to create a
 
 2. Next, select your Azure Databricks service from the list.
 
-    ![Select the Azure Databricks service from within your lab resource group.](images/select-azure-databricks-service.png 'Azure Databricks Service')
+    ![The Azure Databricks service is selected from your lab resource group.](images/select-azure-databricks-service.png 'Azure Databricks Service')
 
 3. In the Overview pane of the Azure Databricks service, select **Launch Workspace**.
 
-    ![Select Launch Workspace within the Azure Databricks service overview pane.](images/azure-databricks-launch-workspace.png 'Launch Workspace')
+    ![The Launch Workspace button is highlighted in the Azure Databricks service overview pane.](images/azure-databricks-launch-workspace.png 'Launch Workspace')
 
     Azure Databricks will automatically log you in using Azure Active Directory Single Sign On.
 
-    ![Azure Databricks Azure Active Directory Single Sign On](images/azure-databricks-aad.png 'Sign In to Databricks')
+    ![Azure Databricks Azure Active Directory Single Sign On dialog.](images/azure-databricks-aad.png 'Sign In to Databricks')
 
 4. Select **Clusters** (1) from the menu, then select **Create Cluster** (2).
 
-    ![Select Clusters from menu then select Create Cluster.](images/azure-databricks-create-cluster-button.png 'Create Cluster')
+    ![Clusters is selected from the left menu and the Create Cluster button is highlighted on the Clusters screen.](images/azure-databricks-create-cluster-button.png 'Create Cluster')
 
 5. On the Create New Cluster form, provide the following:
 
-    - **Cluster Name**: lab
+    - **Cluster Name**: `lab`
 
-    - **Cluster Mode**: Standard
+    - **Cluster Mode**: **Standard**
 
-    - **Databricks Runtime Version**: Runtime: 6.2 (Scala 2.11, Spark 2.4.4)
+    - **Databricks Runtime Version**: **Runtime: 6.2 (Scala 2.11, Spark 2.4.4)**
 
-    - **Enable autoscaling**: Uncheck this option.
+    - **Enable autoscaling**: **Uncheck** this option.
 
-    - **Auto Termination**: Leave checked and in the text box enter `120`.
+    - **Auto Termination**: Leave **checked** and in the text box enter `120`.
 
-    - **Worker Type**: Standard_DS3_v2
+    - **Worker Type**: **Standard_DS3_v2**
 
-    - **Workers**: 1
+    - **Workers**: `1`
 
-    - **Driver Type**: Same as worker
+    - **Driver Type**: **Same as worker**
 
-   ![Complete the form using the options as outlined above.](images/azure-databricks-create-cluster-form.png 'Create New Cluster Dialog')
+   ![The New Cluster form is populated with the values outlined above.](images/azure-databricks-create-cluster-form.png 'Create New Cluster Dialog')
 
 6. Select **Create Cluster**. It will take few minutes to create the cluster. Please ensure that the cluster state is running before proceeding further.
 
@@ -131,21 +129,21 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 1. From the left-hand menu in your Workspace, select **Clusters**.
 
-    ![The Clusters menu option.](images/azure-databricks-clusters.png "Clusters")
+    ![The Clusters menu option is selected from the left menu.](images/azure-databricks-clusters.png "Clusters")
 
 2. In the list of clusters, select your cluster. Make sure the state of the cluster is `Running`.
 
-    ![The list of Interactive Clusters.](images/azure-databricks-clusters-list.png "Interactive Clusters")
+    ![The list of Interactive Clusters is shown with the lab cluster highlighted having a state of Running.](images/azure-databricks-clusters-list.png "Interactive Clusters")
 
 3. Select the **Libraries** link and then select **Install New**.
 
-    ![The Libraries tab showing the Install New button.](images/azure-databricks-cluster-libraries.png "Install New")
+    ![In the lab cluster, the Libraries tab is selected and the Install New button is highlighted.](images/azure-databricks-cluster-libraries.png "Install New")
 
 4. In the Library Source, select **PyPi** and in the Package text box type `azureml-sdk[automl_databricks,interpret]` and select **Install**.
 
-    ![The Install Library dialog showing PyPi as the source and azureml-sdk as the package.](images/azure-databricks-install-library.png "Install Library")
+    ![The Install Library dialog showing the PyPi item selected as the source and the azureml-sdk value entered in the package textbox.](images/azure-databricks-install-library.png "Install Library")
 
-5. An entry for azureml-sdk will appear in the list with a status of installing followed by installed.
+5. An entry for azureml-sdk will appear in the list. The install will progress first with a status of installing followed by the status of installed.
 
 ### Task 4: Upload the Databricks notebook archive
 
@@ -167,15 +165,15 @@ The notebooks you will run depends on certain Python libraries that will need to
 
 1. In the [Azure Portal](https://portal.azure.com), select **+ Create a resource**, then type `Azure Machine Learning` into the search bar. Select `Machine Learning` from the results.
 
-    ![Select create a resource, type in Azure Machine Learning, then select it from the results list.](images/create-aml-resource-01.png 'Create a resource')
+    ![Azure Machine Learning is entered into the search field. Machine learning is selected from the suggested results list.](images/create-aml-resource-01.png 'Create a resource')
 
 2. Select **Create**.
 
-    ![Select Create on the Machine Learning service page.](images/create-aml-resource-02.png 'Create an Azure Machine Learning workspace')
+    ![The Create button is selected on the Machine Learning resource page.](images/create-aml-resource-02.png 'Create an Azure Machine Learning workspace')
 
 3. In the Create Machine Learning Workspace dialog that appears, provide the following values:
 
-    - **Workspace Name**: AML-workspace
+    - **Workspace Name**: `AML-workspace`
 
     - **Subscription**: Choose your Azure subscription.
 
@@ -183,14 +181,10 @@ The notebooks you will run depends on certain Python libraries that will need to
 
     - **Location**: Choose a region closest to you (it is OK if the Azure Databricks Workspace and the Azure Machine Learning Workspace are in different locations).
 
-    - **Workspace edition**: Select `Enterprise`.
+    - **Workspace edition**: Select `Enterprise`
 
-    ![Entering configuration values in the Create Machine Learning Workspace dialog.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
+    ![The Machine Learning Create form is populated with the values outlined above. The Review + Create button is highlighted at the bottom of the form.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
 
-4. Select **Review + Create** and then select **Create** on the dialog that appears.
-
-### Task 6: Download training data to your local machine
-
-1. Download the data from https://databricksdemostore.blob.core.windows.net/data/connected-car/daily-battery-time-series-v2.csv. Please ensure that the name of the downloaded file is `daily-battery-time-series-v2.csv`. Make a note of the location where you saved the file as you will need it during the lab.
+4. Select **Review + Create** and then select **Create** when the form values passes validation.
 
 You should follow all these steps provided _before_ attending the Hands-on lab.

@@ -6,7 +6,7 @@ In the first scenario, Trey Research recently instituted new regulations definin
 
 In the second scenario, Trey Research would like to predict the likelihood of battery failure based on the telemetry stream of time series data that the car provides about how the battery performs when the car is started, how it is charging while running and how well it is holding its charge, among other factors. If they detect a battery failure is imminent within the next 30 days, they would like to send an alert.
 
-November 2019
+March 2020
 
 ## Target audience
 
@@ -19,19 +19,19 @@ November 2019
 
 ### Workshop
 
-In this workshop, you will gain a better understanding of how to combine Azure Databricks with Azure Machine Learning to build, train and deploy the machine learning and deep learning models. You will learn how to use automated machine learning, model lifecycle management from training to deployment, and construct deep learning models for Natural Language Processing (NLP) in text classification and forecasting against time-series data.  Finally, you’ll learn to compare data with PyTorch and Keras for deep learning.
+In this workshop, you will gain a better understanding of how to combine Azure Databricks with Azure Machine Learning to build, train and deploy the machine learning and deep learning models. You will learn how to train a forecasting model against time-series data, without any code, by using automated machine learning, and how to score data in real-time using Spark Structure Streaming within Azure Databricks. You will also learn how to use MLflow for managing experiments run directly on the Azure Databricks cluster and how MLflow can seamlessly log metric and training artifacts in your Azure Machine Learning workspace. You will create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data and train a Natural Language Processing (NLP) text classification model based on Long Short-Term Memory (LSTM) recurrent neural network and Keras.
 
 At the end of this workshop, you will be able to design a solution better understanding the capabilities of leveraging the Azure Machine Learning service and Azure Databricks.
 
 ### Whiteboard design session
 
-In this whiteboard design session, you will work with a group to design and implement a solution that combines Azure Databricks with Azure Machine Learning service to build, train and deploy the machine learning and deep learning models. You will learn how to use automated machine learning, model lifecycle management from training to deployment, in batch and real-time inferencing scenarios, and construct deep learning models for Natural Language Processing (NLP) in text classification and forecasting against time-series data.  Finally, you’ll learn to compare data with PyTorch and Keras for deep learning.
+In this whiteboard design session, you will work with a group to design and implement a solution that combines Azure Databricks with Azure Machine Learning service to build, train and deploy the machine learning and deep learning models. You will learn how to use automated machine learning, model lifecycle management from training to deployment, in batch and real-time inferencing scenarios, and construct deep learning models for Natural Language Processing (NLP) in text classification and forecasting against time-series data. You will also learn how to use MLflow for managing experiments run directly on the Azure Databricks cluster and how MLflow can seamlessly log metrics and training artifacts in your Azure Machine Learning workspace. Finally, you’ll learn to compare data with PyTorch and Keras for deep learning.
 
 At the end of this workshop, you will have a deeper understanding of the capabilities and implementation solutions when leveraging the Azure Machine Learning service and Azure Databricks.
 
 ### Hands-on lab
 
-In this lab, you will use Azure Databricks in combination with Azure Machine Learning to build, train and deploy desired models. You will learn how to train a forecasting model against time-series data, without any code, by using automated machine learning, and how to score data in real-time using Spark Structure Streaming within Azure Databricks.  You will create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data and train a Natural Language Processing (NLP) text classification model using Keras.
+In this lab, you will use Azure Databricks in combination with Azure Machine Learning to build, train and deploy desired models. You will learn how to train a forecasting model against time-series data, without any code, by using automated machine learning, and how to score data in real-time using Spark Structure Streaming within Azure Databricks. You will also learn how to use MLflow for managing experiments run directly on the Azure Databricks cluster and how MLflow can seamlessly log metric and training artifacts in your Azure Machine Learning workspace. You will create a recurrent neural network (RNN) model using PyTorch in Azure Databricks that can be used to forecast against time-series data and train a Natural Language Processing (NLP) text classification model based on Long Short-Term Memory (LSTM) recurrent neural network and Keras.
 
 At the end of this lab, you will be better able to build solutions leveraging Azure Machine Learning and Azure Databricks.
 
