@@ -220,7 +220,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     - **Description**: **The best AutoML model to predict battery cycles.**
 
-    - **Compute type**: Select `ACI`
+    - **Compute type**: Select `ACI`.
 
     ![The Deploy a model dialog is populated with the values listed above. The Deploy button is selected at the bottom of the form.](images/automl-deploy-best-model-02.png 'Deploy the best model')
 
