@@ -9,7 +9,7 @@ Hands-on lab step-by-step
 </div>
 
 <div class="MCWHeader3">
-March 2020
+June 2020
 </div>
 
 Information in this document, including URL and other Internet Web site references, is subject to change without notice. Unless otherwise noted, the example companies, organizations, products, domain names, e-mail addresses, logos, people, places, and events depicted herein are fictitious, and no association with any real company, organization, product, domain name, e-mail address, logo, person, place or event is intended or should be inferred. Complying with all applicable copyright laws is the responsibility of the user. Without limiting the rights under copyright, no part of this document may be reproduced, stored in or introduced into a retrieval system, or transmitted in any form or by any means (electronic, mechanical, photocopying, recording, or otherwise), or for any purpose, without the express written permission of Microsoft Corporation.
@@ -154,7 +154,7 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     - **Compute name**: `auto-ml-compute`
   
-    - **Select Virtual Machine size**: `STANDARD_DS11_v2`
+    - **Select Virtual Machine size**: `STANDARD_DS3_v2`
   
     - **Minimum number of nodes**: `1`
   
@@ -164,15 +164,19 @@ In this exercise, you will create a model that predicts battery failure from tim
 
     > **Note**: The creation of the new compute may take several minutes. Once the process is completed, select **Next** in the `Configure run` section.
 
-12. Select the `Time series forecasting` task type and then select `Date` as the time column and `Battery_ID` as group by column. Select **View additional configuration settings**.
+12. Select the `Time series forecasting` task type and provide the following values and then select **View additional configuration settings**:
+
+    - **Time column**: `Date`
+
+    - **Group by column(s)**: `Battery_ID`
+
+    - **Forecast horizon**: `30`
 
     ![The Select task type form is populated with the values outlined above. The View additional configuration settings link is highlighted.](images/automl-configure-task-01.png 'Configure time series forecasting task')
 
 13. For the automated machine learning run additional configurations, provide the following values and then select **Save**:
 
     - **Primary metric**: `Normalized root mean squared error`
-
-    - **Forecast Horizon**: enter `30`. This refers to forecasting out up to 30 days.
 
     - **Training job time (hours)** (in the `Exit criterion` section): enter `1` as this is the lowest value currently accepted.
 
@@ -184,35 +188,35 @@ In this exercise, you will create a model that predicts battery failure from tim
 
 14. Select **Finish** to start the new automated machine learning run.
 
-    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 9, 10, 12, 13, and 14). Make sure you provide a lower value for `Metric score threshold` in step 13.
+    > **Note**: The experiment should run for up to 10 minutes. If the run time exceeds 15 minutes, cancel the run and start a new one (steps 3, 9, 10, 12, 13, and 14). Make sure you provide a higher value for `Metric score threshold` in step 13.
 
 ### Task 2: Review the experiment run results
 
-1. Once the experiment completes, select `Details` to examine the details of the run containing information about the recommended model and the run summary.
+1. Once the experiment completes, select `Details` to examine the details of the run containing information about the best model and the run summary.
 
-   ![The Run Detail screen of Run 1 indicates it has completed. The Details tab is selected where the the recommended model, ProphetModel, is indicated along with the run summary.](images/automl-review-run-01.png 'Run details - recommended model and summary')
+   ![The Run Detail screen of Run 1 indicates it has completed. The Details tab is selected where the the best model, ProphetModel, is indicated along with the run summary.](images/automl-review-run-01.png 'Run details - best model and summary')
 
 2. Select `Models` to see a table view of different iterations and the `Normalized root mean squared error` score for each iteration. Note that the normalized root mean square error measures the error between the predicted value and actual value. In this case, the model with the lowest normalized root mean square error is the best model. Note that Azure Machine Learning Python SDK updates over time and gives you the best performing model at the time you run the experiment. Thus, it is possible that the best model you observe can be different than the one shown below.
 
     ![The Run Detail screen of Run 1 is displayed with the Models tab selected. A table of algorithms is displayed with the values for Normalized root mean squared error highlighted.](images/automl-review-run-02.png 'Run Details - Models with their associated primary metric values')
 
-3. Return to the details of your experiment run and select **View model details**.
+3. Return to the details of your experiment run and select the best model **Algorithm name**.
 
-    ![The Run Detail screen of Run 1 is displayed with the Details tab selected. The View model details button is selected.](images/automl-review-run-03.png 'Run details - recommended model and summary')
+    ![The Run Detail screen of Run 1 is displayed with the Details tab selected. The best model algorithm name is selected.](images/automl-review-run-03.png 'Run details - recommended model and summary')
 
-4. Review the various **Run Metrics** to evaluate the model performance.
+4. From the `Model` tab, select **View all other metrics** to review the various `Run Metrics` to evaluate the model performance.
 
-    ![The Run Detail, (ProphetModel) model details page displays run metrics associated with the Run.](images/automl-review-run-04.png 'Model details - Run Metrics')
+    ![The model details page displays run metrics associated with the Run.](images/automl-review-run-04.png 'Model details - Run Metrics')
 
-5. Next, select **Visualizations** to review the model performance curve: `Predicted vs True`. When you are done, select **Run Detail** to return to the details of your experiment.
+5. Next, select **Metrics, predicted_true** to review the model performance curve: `Predicted vs True`.
 
-    ![The Run Detail, (ProphetModel) model details page displays with the Visualizations tab selected. A chart is displayed showing the Predicted vs True curve.](images/automl-review-run-05.png 'Predicted vs True curve')
+    ![The model run page is shown with the Metrics tab selected. A chart is displayed showing the Predicted vs True curve.](images/automl-review-run-05.png 'Predicted vs True curve')
 
 ### Task 3: Deploy the Best Model
 
-1. From the details section, select **Deploy best model**.
+1. From the top toolbar select **Deploy**.
 
-    ![On the Run Detail screen of Run 1, the details tab is selected and the "Deploy best model" button is selected.](images/automl-deploy-best-model-01.png 'Deploy best model')
+    ![From the toolbar the Deploy button is selected.](images/automl-deploy-best-model-01.png 'Deploy best model')
 
 2. Provide the `Name`, `Description` and `Compute type`, and then select **Deploy**:
 
@@ -238,7 +242,7 @@ Duration: 45 minutes
 
 ### Task 1: Create the model using a notebook
 
-1. Browse to your Azure Databricks Workspace and open `AI with Databricks and AML \ Deep Learning with Time Series`. This is the notebook you will step through executing in this lab.
+1. Browse to your Azure Databricks Workspace and open `AI with Databricks and AML \ 1.0 Deep Learning with Time Series`. This is the notebook you will step through executing in this lab.
 
 2. Follow the instructions within the notebook to complete the lab.
 
@@ -250,7 +254,7 @@ In this exercise, you will apply the forecast model to a Spark streaming job in 
 
 ### Task 1: Create the streaming job using a notebook
 
-1. Browse to your Azure Databricks Workspace and navigate to `AI with Databricks and AML \ Stream Scoring`. This is the notebook you will step through executing in this lab.
+1. Browse to your Azure Databricks Workspace and navigate to `AI with Databricks and AML \ 2.0 Stream Scoring`. This is the notebook you will step through executing in this lab.
 
 2. Follow the instructions within the notebook to complete the lab.
 
@@ -262,7 +266,7 @@ In this exercise, you create a model for classifying component text as compliant
 
 ### Task 1: Create, train and track the classification model using a notebook
 
-1. Browse to your Azure Databricks Workspace and navigate to `AI with Databricks and AML \ Deep Learning with Text`. This is the notebook you will step through executing in this lab.
+1. Browse to your Azure Databricks Workspace and navigate to `AI with Databricks and AML \ 3.0 Deep Learning with Text`. This is the notebook you will step through executing in this lab.
 
 2. Follow the instructions within the notebook to complete the lab.
 
