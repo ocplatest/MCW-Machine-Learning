@@ -73,7 +73,7 @@ Azure Databricks is an Apache Spark-based analytics platform optimized for Azure
 
     - **Location**: Select a region close to you. ***(If you are using an Azure Pass, select South Central US.)***
 
-    - **Pricing**: Select **Premium (+ Role-based access controls)**
+    - **Pricing**: Select **Premium (+ Role-based access controls)**.
 
     ![The Azure Databricks Service creation form is populated with the values outlined above.](images/azure-databricks-create-blade.png 'Azure Databricks Service Creation Dialog')
 
@@ -181,7 +181,7 @@ The notebooks you will run depends on certain Python libraries that will need to
 
     - **Location**: Choose a region closest to you (it is OK if the Azure Databricks Workspace and the Azure Machine Learning Workspace are in different locations).
 
-    - **Workspace edition**: Select `Enterprise`
+    - **Workspace edition**: Select `Enterprise`.
 
     ![The Machine Learning Create form is populated with the values outlined above. The Review + Create button is highlighted at the bottom of the form.](images/create-aml-workspace.png 'Azure Machine Learning Workspace Creation Dialog')
 
