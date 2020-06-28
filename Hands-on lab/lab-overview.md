@@ -41,3 +41,29 @@ The scoring is performed using notebooks running within Azure Databricks noteboo
     - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
 
     - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
+    
+**Contents** 
+
+<!-- TOC -->
+
+- [Machine Learning hands-on lab step-by-step](#machine-learning-hands-on-lab-step-by-step)
+  - [Abstract and learning objectives](#abstract-and-learning-objectives)
+  - [Overview](#overview)
+  - [Solution architecture](#solution-architecture)
+  - [Requirements](#requirements)
+  - [Before the hands-on lab](#before-the-hands-on-lab)
+  - [Exercise 1: Creating a forecast model using automated machine learning](#exercise-1-creating-a-forecast-model-using-automated-machine-learning)
+    - [Task 1: Create an automated machine learning experiment](#task-1-create-an-automated-machine-learning-experiment)
+    - [Task 2: Review the experiment run results](#task-2-review-the-experiment-run-results)
+    - [Task 3: Deploy the Best Model](#task-3-deploy-the-best-model)
+  - [Exercise 2: Creating a deep learning model (RNN) for time series data](#exercise-2-creating-a-deep-learning-model-rnn-for-time-series-data)
+    - [Task 1: Create the model using a notebook](#task-1-create-the-model-using-a-notebook)
+  - [Exercise 3: Using a forecast model for scoring of streaming telemetry](#exercise-3-using-a-forecast-model-for-scoring-of-streaming-telemetry)
+    - [Task 1: Create the streaming job using a notebook](#task-1-create-the-streaming-job-using-a-notebook)
+  - [Exercise 4: Creating, training and tracking a deep learning text classification model with Azure Databricks, MLflow and Azure Machine Learning](#exercise-4-creating-training-and-tracking-a-deep-learning-text-classification-model-with-azure-databricks-mlflow-and-azure-machine-learning)
+    - [Task 1: Create, train and track the classification model using a notebook](#task-1-create-train-and-track-the-classification-model-using-a-notebook)
+    - [Task 2: Review model performance metrics and training artifacts in Azure Machine Learning workspace](#task-2-review-model-performance-metrics-and-training-artifacts-in-azure-machine-learning-workspace)
+  - [After the hands-on lab](#after-the-hands-on-lab)
+    - [Task 1: Clean up lab resources](#task-1-clean-up-lab-resources)
+
+<!-- /TOC -->
