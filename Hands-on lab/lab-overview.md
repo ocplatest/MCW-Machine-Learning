@@ -42,7 +42,7 @@ The scoring is performed using notebooks running within Azure Databricks noteboo
 
     - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
     
-**Contents** 
+### Contents
 
 <!-- TOC -->
 
