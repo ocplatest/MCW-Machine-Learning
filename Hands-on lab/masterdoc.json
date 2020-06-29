@@ -4,20 +4,24 @@
     "Language": "English",
     "Files": [
       {
-        "RawFilePath": "https://raw.githubusercontent.com/SpektraSystems/MCW-Machine-Learning/master/Hands-on%20lab/lab-overview.md",
+        "RawFilePath": "https://raw.githubusercontent.com/amalgireesh/MCW-Machine-Learning/master/Hands-on%20lab/lab-overview.md",
         "Order": 1
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/SpektraSystems/MCW-Machine-Learning/master/Hands-on%20lab/01.md",
+        "RawFilePath": "https://raw.githubusercontent.com/SpektraSystems/Microsoft-Cloud-Workshop/master/Machine%20Learning/Readme.md",
         "Order": 2
       },
       {
-        "RawFilePath": "https://raw.githubusercontent.com/SpektraSystems/MCW-Machine-Learning/master/Hands-on%20lab/02.md",
+        "RawFilePath": "https://raw.githubusercontent.com/amalgireesh/MCW-Machine-Learning/master/Hands-on%20lab/01.md",
         "Order": 3
+      },
+      {
+        "RawFilePath": "https://raw.githubusercontent.com/amalgireesh/MCW-Machine-Learning/master/Hands-on%20lab/02.md",
+        "Order": 4
       },   
       {
-        "RawFilePath": "https://raw.githubusercontent.com/SpektraSystems/MCW-Machine-Learning/master/Hands-on%20lab/lab-completed.md",
-        "Order": 4
+        "RawFilePath": "https://raw.githubusercontent.com/amalgireesh/MCW-Machine-Learning/master/Hands-on%20lab/lab-completed.md",
+        "Order": 5
       }
     ]
   }
