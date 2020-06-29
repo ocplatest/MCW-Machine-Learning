@@ -1,4 +1,6 @@
-Task : Download training data to your local machine. You should follow  this step provided before attending the Hands-on lab.
+### Task 
+
+Download training data to your local machine. You should follow  this step provided before attending the Hands-on lab.
     
 Download the data from;
 
