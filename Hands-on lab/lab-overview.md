@@ -33,36 +33,3 @@ The following diagram summarizes the key components and processing steps in the 
 In this lab, models are trained using both Azure Databricks (for deep learning with the PyTorch and Keras frameworks) and Azure Machine Learning compute (for automated machine learning using the user experience in the Azure Machine Learning studio). Models are registered with the Azure Machine Learning Workspace. The data used for model training is read from Azure Storage.
 
 The scoring is performed using notebooks running within Azure Databricks notebooks, which show how to load and apply the respective models against the data provided.
-
-## Requirements
-
-1. Microsoft Azure subscription must be Pay-As-You-go or MSDN.
-
-    - Trial subscriptions will not work. You will run into issues with Azure resource quota limits.
-
-    - Subscriptions with access limited to a single resource group will not work. You will need the ability to deploy multiple resource groups.
-    
-### Contents
-
-<!-- TOC -->
-
-- Machine Learning hands-on lab step-by-step
-  - Abstract and learning objectives](#abstract-and-learning-objectives)
-  - Overview
-  - Solution architecture
-  - Requirements
-  - Before the hands-on lab
-  - Exercise 1: Creating a forecast model using automated machine learning
-    - Task 1: Create an automated machine learning experiment
-    - Task 2: Review the experiment run results
-    - Task 3: Deploy the Best Model
-  - Exercise 2: Creating a deep learning model (RNN) for time series data
-    - [Task 1: Create the model using a notebook
-  - Exercise 3: Using a forecast model for scoring of streaming telemetry
-    - [Task 1: Create the streaming job using a notebook
-  - Exercise 4: Creating, training and tracking a deep learning text classification model with Azure Databricks, MLflow and Azure Machine Learning
-    - [Task 1: Create, train and track the classification model using a notebook
-    - [Task 2: Review model performance metrics and training artifacts in Azure Machine Learning workspace
-  
-
-<!-- /TOC -->
