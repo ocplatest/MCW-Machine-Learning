@@ -1,20 +1,15 @@
 # Getting Started with Lab
 
 1. Once the environment is provisioned, a virtual machine (JumpVM) and lab guide will get loaded in your browser. Use this virtual machine throughout the workshop to perform the the lab.
-1. To get the lab environment details, you can select **Lab Environment** tab. Additionally, the credentials will also be emailed to your email address provided at registration.
-
-   ![](images/14.png "Lab Environment")
+1. To get the lab environment details, you can select **Lab Environment** tab. 
+   ![](images/udacity-01.png "Lab Environment")
  
-    > You will see Suffix/DeploymentID value on **Lab Environment** tab, use it whereever you see SUFFIX or DeploymentID in lab steps.
  
-1. You can also open the Lab Guide on Seprate full window by selcting the **Arrow** icon in upper right corner.
-
-   ![](images/15.png "Lab Guide")
  
 ## Login to Azure Portal
 1. In the JumpVM, click on Azure portal shortcut of Microsoft Edge browser which is created on desktop.
 
-   ![azure portal.](images/16.png)
+   ![azure portal.](images/udacity-02.png)
    
 1. When you click on Azure portal, edge browser welcome screen will come up, select **Get started**.
 
@@ -54,7 +49,7 @@
    
 1. Confirm you have all resource group are present as shown below.
 
-   ![](images/24.png "Resource groups")
+   ![](images/udacity-03.png "Resource groups")
    
 1. Now, click on the **Resource group** and select your machine learning workspace
 
