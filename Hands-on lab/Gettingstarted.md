@@ -56,5 +56,5 @@
 
    ![](images/24.png "Resource groups")
    
-1. Now, click on the **Next** from lower right corner to move on the next page.
+1. Now, click on the **Resource group** and select your machine learning workspace
 
