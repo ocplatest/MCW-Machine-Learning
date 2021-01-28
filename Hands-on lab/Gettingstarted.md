@@ -2,6 +2,7 @@
 
 1. Once the environment is provisioned, a virtual machine (JumpVM) and lab guide will get loaded in your browser. Use this virtual machine throughout the workshop to perform the the lab.
 1. To get the lab environment details, you can select **Lab Environment** tab. 
+
    ![](images/udacity-01.png "Lab Environment")
  
  
