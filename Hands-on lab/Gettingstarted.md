@@ -9,12 +9,12 @@
 1. In the Kali VM, open the browser and navigate to https://portal.azure.com
    
 2. On **Sign in to Micsoft Azure** tab you will see login screen, in that enter following Azure username and then click on **Next**. 
-   * Email/Username: <inject key="AzureAdUserEmail"></inject>
+   * Azure Username: <inject key="AzureAdUserEmail"></inject>
    
      ![](images/21.png "Enter Email")
      
 3. Now enter the following Azure password and click on **Sign in**.
-   * Password: <inject key="AzureAdUserPassword"></inject>
+   * Azure Password: <inject key="AzureAdUserPassword"></inject>
    
      ![](images/22.png "Enter Password")
      
