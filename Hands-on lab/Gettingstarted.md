@@ -1,7 +1,7 @@
 # Getting Started with Lab
 
 1. Once the environment is provisioned, a virtual machine (Kali inux VM) will get loaded. Use this virtual machine throughout the workshop to perform the the lab.
-1. To get the lab environment details, you can select **Lab Environment** tab. 
+1. To get the lab environment details, you can select **Lab Environment** tab. All the required lab resource details will be available in the Lab environment page.
 
    ![](images/udacity-01.png "Lab Environment")
  
