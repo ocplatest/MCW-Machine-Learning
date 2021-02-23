@@ -1,6 +1,6 @@
 # Getting Started with Lab
 
-1. Once the environment is provisioned, a virtual machine (JumpVM) and lab guide will get loaded in your browser. Use this virtual machine throughout the workshop to perform the the lab.
+1. Once the environment is provisioned, a virtual machine (Kali inux VM) will get loaded. Use this virtual machine throughout the workshop to perform the the lab.
 1. To get the lab environment details, you can select **Lab Environment** tab. 
 
    ![](images/udacity-01.png "Lab Environment")
@@ -8,32 +8,17 @@
  
  
 ## Login to Azure Portal
-1. In the JumpVM, click on Azure portal shortcut of Microsoft Edge browser which is created on desktop.
+1. In the Kali VM, open the browser and navigate to portal.azure.com
 
    ![azure portal.](images/udacity-02.png)
    
-1. When you click on Azure portal, edge browser welcome screen will come up, select **Get started**.
-
-   ![](images/17.png "Get started")
    
-1. On next window, click on **Confirm**.
-
-   ![](images/18.png "Confirm")
-   
-1. Now, you can close the popup which is coming up.
-
-   ![](images/19.png "Confirm")
-   
-1. Now, you will see two tabs in edge browser, close first tab named with **Microsoft Edge**.
-
-   ![](images/20.png "Close Tab")
-   
-1. On **Sign in to Micsoft Azure** tab you will see login screen, in that enter following email/username and then click on **Next**. 
+1. On **Sign in to Micsoft Azure** tab you will see login screen, in that enter following Azure username and then click on **Next**. 
    * Email/Username: <inject key="AzureAdUserEmail"></inject>
    
      ![](images/21.png "Enter Email")
      
-1. Now enter the following password and click on **Sign in**.
+1. Now enter the following Azure password and click on **Sign in**.
    * Password: <inject key="AzureAdUserPassword"></inject>
    
      ![](images/22.png "Enter Password")
@@ -52,5 +37,4 @@
 
    ![](images/udacity-03.png "Resource groups")
    
-1. Now, click on the **Resource group** and select your machine learning workspace
-
+1. Now, Open the **Resource group** to see all the resource deployed for you.
